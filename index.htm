@@ -16,8 +16,11 @@
     <script src="f/js/jquery-1.11.3.min.js"></script>
     <script src="f/js/bootstrap.min.js"></script>
     <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
     <link rel="stylesheet" href="f/css/main.css">
     <script src="f/js/common.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script>
       $(document).ready(function(){
         
@@ -26,43 +29,172 @@
   </head>
 <body>
   <div class="wrap clearfix">
-    <section class="sec sec_1">
-      <div class="sec__back">
-        <div class="sec__back-holder">
+    <header class="header">
+      <a href="/" class="logo iconize-logo">&nbsp
+      </a><a href="#ham-popup" class="ham modal-ham">&nbsp</a>
+      <div class="header__control">
+        <span class="header__phone"><span>+7 (4852)</span> 33-46-06</span>
+        <a href="#" class="header__size icon-size">&nbsp</a>
+        <a href="#" class="header__consult icon-consult">&nbsp</a>
+      </div>
+      
+    </header>
+    <section class="screen screen_preface">
+      <div class="screen__back">
+        <div class="screen__back-holder">
           <div class="holder">
             фон1
           </div>
         </div>
       </div>
-      <div class="cont">контент1</div>
+      <div class="screen__content">контент1</div>
     </section>
-    <section class="sec sec_2">
-      <div class="sec__back">
-        <div class="sec__back-holder">
+    <section class="screen screen_sections">
+      <div class="screen__back">
+        <div class="screen__back-holder">
           <div class="holder">
             фон2
           </div>
         </div>
       </div>
-      <div class="cont">контент2</div>
+      <div class="screen__content">контент2</div>
     </section>
-    <section class="sec sec_3">
-      <div class="sec__back">
-        <div class="sec__back-holder">
+    <section class="screen screen_production">
+      <div class="screen__back">
+        <div class="screen__back-holder">
           <div class="holder">
             фон3
           </div>
         </div>
       </div>
-      <div class="cont">контент3</div>
+      <div class="screen__content">контент3</div>
     </section>
   </div>  
   <footer class="footer">
-      
+    <div class="holder">
+      <div class="footer__info">
+        <p class="footer__phone">+7 (4852) <span>33-46-06</span></p>
+        <p class="footer__madeby">
+          <span>Создание сайта</span>
+          <a href="#" class="iconize-inteo">&nbsp</a>
+        </p>
+      </div>
+      <div class="footer__control">
+        <ul class="footer-menu">
+          <li><a href="#">Каталог</a></li>
+          <li><a href="#">Акции</a></li>
+          <li><a href="#">О компании</a></li>
+          <li><a href="#">Вопросы и ответы</a></li>
+          <li><a href="#">Дизайнерам</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+        <form action="/search/">
+          <input class="footer__search" type="text" id="search" name="q" placeholder="Поиск">
+          <label for="search" class="icon-search">&nbsp</label>
+        </form>
+      </div>
+    </div>
   </footer>
   <div class="popups">
-    
+    <div class="ham-popup" id="ham-popup">
+      <div class="ham-popup__head">
+        <a href="/" class="logo logo_small iconize-logo2">&nbsp</a>
+        <ul class="ham-popup__menu">
+          <li><a href="#">Каталог</a>
+          </li><li><a href="#">О компании</a>
+          </li><li><a href="#">Дизайнерам</a>
+          </li><li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="ham-popup__control">
+          <span class="ham-popup__phone"><span>+7 (4852)</span> 33-46-06</span>
+          <a href="#" class="ham-popup__size"><i class="icon-size"></i>Замерщик</a>
+          <a href="#" class="ham-popup__consult"><i class="icon-consult"></i>Консультация</a>
+        </div>
+      </div>
+      <div class="section-menu">
+        <div class="holder">
+          <div class="section-menu__holder">
+            <div class="section-menu__col section-menu__col_dbl">
+              <div class="section-menu__list section-menu__list_closets">
+                <p><a href="#" class="section-menu__title">Шкафы-купе</a></p>
+                <div class="section-menu__item">
+                  <p class="section-menu__subtitle">По назначению</p>
+                  <ul>
+                    <li><a href="#">Прямые</a></li>
+                    <li><a href="#">Радиусные</a></li>
+                    <li><a href="#">Мансардные</a></li>
+                    <li><a href="#">В багете</a></li>
+                    <li><a href="#">Угловые</a></li>
+                  </ul>
+                </div><div class="section-menu__item">
+                  <p class="section-menu__subtitle">По исполнению</p>
+                  <ul>
+                    <li><a href="#">Встроенные</a></li>
+                    <li><a href="#">Полувстроенные</a></li>
+                    <li><a href="#">Корпусные</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div><div class="section-menu__col">
+              <div class="section-menu__list section-menu__list_kitchen">
+                <a href="#" class="section-menu__title">Кухни</a>
+                <div class="section-menu__item">
+                  <p class="section-menu__subtitle">По стилю</p>
+                  <ul>
+                    <li><a href="#">Классические</a></li>
+                    <li><a href="#">Модерн</a></li>
+                    <li><a href="#">Хай-тек</a></li>
+                    <li><a href="#">Смешанные</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div><div class="section-menu__col">
+              <div class="section-menu__list section-menu__list_living">
+                <a href="#" class="section-menu__title">Гостиные</a>
+              </div>
+            </div><div class="section-menu__col">
+              <div class="section-menu__list section-menu__list_dressing">
+                <a href="#" class="section-menu__title">Гардеробные</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_hallways">
+                <a href="#" class="section-menu__title">Прихожие</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_bedrooms">
+                <a href="#" class="section-menu__title">Спальни</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_children">
+                <a href="#" class="section-menu__title">Детские</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_cabinet">
+                <a href="#" class="section-menu__title">Кабинеты</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_library">
+                <a href="#" class="section-menu__title">Библиотеки</a>
+              </div>
+            </div><div class="section-menu__col">
+              <div class="section-menu__list section-menu__list_interior">
+                <a href="#" class="section-menu__title">Межкомнатные перегородки</a>
+                <div class="section-menu__item">
+                  <p class="section-menu__subtitle">По исполнению</p>
+                  <ul>
+                    <li><a href="#">Радиусные</a></li>
+                    <li><a href="#">Прямые</a></li>
+                    <li><a href="#">Складные</a></li>
+                    <li><a href="#">Подвесные</a></li>
+                    <li><a href="#">Опорные</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
-
