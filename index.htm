@@ -22,8 +22,24 @@
     <script src="f/js/common.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script>
-      $(document).ready(function(){
-        
+      $(document).ready(function() {
+        var $carousel = $(".preface-slider__holder");
+        $carousel.carouFredSel({
+          align: false,
+          responsive : true, 
+          width: "100%",
+          height: "auto",        
+          items: {
+            height: $(".preface-slider .screen__back-holder").height(),
+          },
+          pagination: {
+            container: ".preface-slider__pager"
+          },
+          scroll: {
+            timeoutDuration: 5000,
+            fx: "crossfade"
+          }
+        });
       });
     </script>
   </head>
@@ -39,15 +55,41 @@
       </div>
       
     </header>
-    <section class="screen screen_preface">
+    <section class="screen preface-slider">
       <div class="screen__back">
         <div class="screen__back-holder">
-          <div class="holder">
-            фон1
+          <div class="preface-slider__holder">
+            <div class="preface-slider__item">
+              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+            </div>
+            <div class="preface-slider__item">
+              <img src="f/i/preface/2.jpg" alt="" width="1280px", height="780px">
+            </div>
+            <div class="preface-slider__item">
+              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+            </div>
+            <div class="preface-slider__item">
+              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+            </div>
+            <div class="preface-slider__item">
+              <img src="f/i/preface/2.jpg" alt="" width="1280px", height="780px">
+            </div>
+            <div class="preface-slider__item">
+              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+            </div>
+            <div class="preface-slider__item">
+              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+            </div>
           </div>
+          <div class="preface-slider__pager"></div>
         </div>
       </div>
-      <div class="screen__content">контент1</div>
+      <div class="screen__content">
+        <div class="screen__info">
+          <h1 class="screen__title">Мебельная <br>фабрика</h1>
+          <p class="screen__text">Вы воплощаем ваши самые смелые идеи и задумки в практичную реальность, сохраняя функциональность и эстетичность.</p>
+        </div>
+      </div>
     </section>
     <section class="screen screen_sections">
       <div class="screen__back">

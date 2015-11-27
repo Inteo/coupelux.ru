@@ -3790,6 +3790,17 @@ button.close {
 @black: #0b0f11;
 @orange: #e53935;
 
+@font-face {
+  font-family: 'tinos';
+  src: url('../../f/fonts/tinos_regular.eot');
+  src: url('../../f/fonts/tinos_regular.eot?#iefix') format('embedded-opentype'),
+       url('../../f/fonts/tinos_regular.woff2') format('woff2'),
+       url('../../f/fonts/tinos_regular.woff') format('woff'),
+       url('../../f/fonts/tinos_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 ::-webkit-input-placeholder { 
   line-height: 36px;
   font-size: 14px;
@@ -3959,7 +3970,7 @@ a:hover .icon-consult {
   &__phone {
     color: @orange;;
     font-size: 30px;
-    margin-right: 30px;
+    margin-right: 25px;
     display: inline-block;
     vertical-align: top;
     & span {
@@ -3970,7 +3981,7 @@ a:hover .icon-consult {
     float: right;
   }
   &__size {
-    margin-right: 30px;
+    margin-right: 25px;
   }
 }
 .logo {
@@ -4363,21 +4374,10 @@ a:hover .icon-consult {
 	margin: 0 auto;
 	position: relative;
 }
-.header {
-  
-}
-.logo {
-  
-}
 .screen {
   position: relative;
   height: 800px;
   z-index: 1;
-  &_preface {
-    min-height: 800px;
-    height: 100%;
-    height: 100vh;
-  }
   &__back {
     position: absolute;
     width: 100%;
@@ -4398,13 +4398,9 @@ a:hover .icon-consult {
         left: 0;
         background: @black;
         opacity: .5;
-        z-index: 1;
+        z-index: 2;
       }
     }
-  }
-  &_preface &__back-holder {
-    background: url(../../f/i/preface/1.jpg) no-repeat bottom;
-    background-size: cover;
   }
   &_sections &__back-holder {
     background: url(../../f/i/sections/1.png) no-repeat bottom;
@@ -4424,9 +4420,79 @@ a:hover .icon-consult {
   }
   &__content {
     position: relative;
-    z-index: 1;
-    display: block;
-    padding-top: 100px;
+    height: 100%;
     text-align: center;
+    z-index: 3;
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 100%;
+    }
+  }
+  &__info {
+    text-align: left;
+    width: 450px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__title {
+    font: 60px/60px 'tinos', sans-serif;
+    color: #fff;
+    text-transform: none;
+    padding-bottom: 40px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: @orange;
+    }
+  }
+  &__text {
+    color: #eceff1;
+    line-height: 30px;
+  }
+}
+.preface-slider {
+  min-height: 800px;
+  height: 100%;
+  height: 100vh;
+  &__item {
+    height: 100%;
+    & img {
+      min-height: 100%;
+      min-width: 100%;
+      height: auto;
+    }
+  }
+  &__pager {
+    position: absolute;
+    right: 10%;
+    bottom: 100px;
+    z-index: 10;
+    margin-left: -20px;
+    & a {
+      width: 10px;
+      height: 10px;
+      background: @black;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 20px;
+      & span {
+        display: none;
+      }
+      &.selected {
+        width: 20px;
+        height: 20px;
+        background: none;
+        border: 2px solid @orange;
+      }
+    }
   }
 }
