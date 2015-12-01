@@ -4413,7 +4413,7 @@ a:hover .icon-consult {
     position: relative;
     height: 100%;
     text-align: center;
-    z-index: 3;
+    
     &:before {
       content: '';
       display: inline-block;
@@ -4427,6 +4427,8 @@ a:hover .icon-consult {
     width: 450px;
     display: inline-block;
     vertical-align: middle;
+    z-index: 10;
+    position: relative;
   }
   &__title {
     font: 60px/60px 'tinos', sans-serif;
@@ -4452,6 +4454,9 @@ a:hover .icon-consult {
 .preface-slider {
   height: 100%;
   height: 100vh;
+  & .screen__info {
+  	margin-bottom: -70px;
+  }
   &__item {
     height: 100%;
     & img {
@@ -4490,7 +4495,7 @@ a:hover .icon-consult {
   width: 20px;
   margin-top: 70px;
   &__arrows {
-    span {
+    & span {
       display: block;
       width: 10px;
       height: 10px;
@@ -4505,15 +4510,15 @@ a:hover .icon-consult {
       -webkit-animation: mouse-scroll 1s infinite;
       -moz-animation: mouse-scroll 1s infinite;
       -webkit-animation-direction: alternate;
-      &:nth-of-type(0) {
+      &:nth-of-type(1) {
         -webkit-animation-delay: .1s;
         -moz-animation-delay: .1s;
       }
-      &:nth-of-type(1) {
+      &:nth-of-type(2) {
         -webkit-animation-delay: .2s;
         -moz-animation-delay: .2s;
       }
-      &:nth-of-type(2) {
+      &:nth-of-type(3) {
         -webkit-animation-delay: .3s;
         -moz-animation-delay: .3s;
       }
@@ -4592,7 +4597,7 @@ a:hover .icon-consult {
       background: #263238 url(../../f/i/patterns/1.png);
       opacity: 1;
       width: 100%;
-      top: 700px;
+      top: 650px;
       height: 100%;
       position: absolute;
       content: '';
@@ -4601,18 +4606,19 @@ a:hover .icon-consult {
   }
   & .screen__text {
     color: #90a4ae;
+    margin-bottom: 30px;
   }
   height: 800px;
   &__item {
     height: 100%;
     position: relative;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
     &:before {
       height: 5px;
       background: @black;;
       content: '';
       position: absolute;
-      bottom: 100px;
+      bottom: 150px;
       width: 100%;
     }
      &:after {
@@ -4621,11 +4627,11 @@ a:hover .icon-consult {
       content: '';
       width: 100%;
       top: 0;
-      bottom: 100px;
+      bottom: 150px;
       z-index: -1;
     } 
     & img {
-      bottom: 100px;
+      bottom: 150px;
       position: absolute;
       max-width: 800px;
       left: 0;
@@ -4680,4 +4686,114 @@ a:hover .icon-consult {
       }
     }
   }
+  &__link {
+  	text-align: center;
+  	position: absolute;
+  	z-index: 2;
+  	height: 40px;
+  	margin-left: 50%;
+  	margin-top: 50px; 
+		& a {
+  		display: inline-block;
+  		min-width: 40px;
+  		height: 40px;
+  		background: @black;
+  		position: relative;
+  		border-radius: 20px 20px;
+  		overflow: hidden;
+  		margin-left: -100%;
+  		margin-right: -40px;
+  		.transition(max-width, .4s, ease);
+  		&:before,
+	  	&:after {
+	  		content: '';
+	  		position: absolute;
+	  		background: @orange;
+				width: 20px;
+	      height: 2px;
+	      top: 0;
+	      bottom: 0;
+	      right: 0;
+	      left: 0;
+	      margin: auto;
+	      opacity: 1;
+	      .transition(opacity, .1s, ease);
+	  	}
+	  	&:after {
+	  		-ms-transform: rotate(90deg); /* IE 9 */
+	      -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+	      transform: rotate(90deg);
+	  	}
+  	}
+  	& b {
+  		line-height: 40px;
+  		max-width: 0;
+			word-wrap: normal;
+			display: inline-block;
+			opacity: 0;
+			font-size: 14px;
+			color: @orange;
+			font-weight: normal;
+			position: relative;
+			.transition(all, .2s, ease);
+  	}
+  	& a:hover {
+  		&:before,
+  		&:after {
+  			opacity: 0;
+  		}
+  		& b {
+				padding: 0 30px;
+				max-width: 999px;
+				opacity: 1;
+				.transition(all, .4s, ease);
+	  	}
+  	}
+  }
+}
+.anim-link {
+	color: @orange;
+	& i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    -ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+     
+    border-right: 2px solid @orange;
+    border-bottom: 2px solid @orange;
+
+    &:nth-of-type(1) {
+      opacity: .3;
+      margin-left: 5px;
+    }
+    &:nth-of-type(2) {
+      opacity: .7;
+    }
+    &:nth-of-type(3) {
+      opacity: 1;
+    }
+  }
+	&:hover {
+		color: #f44336;
+		& i {
+			-webkit-animation: mouse-scroll 1s infinite;
+	    -moz-animation: mouse-scroll 1s infinite;
+	    -webkit-animation-direction: alternate;
+	    &:nth-of-type(1) {
+	      -webkit-animation-delay: .1s;
+	      -moz-animation-delay: .1s;
+	    }
+	    &:nth-of-type(2) {
+	      -webkit-animation-delay: .2s;
+	      -moz-animation-delay: .2s;
+	    }
+	    &:nth-of-type(3) {
+	      -webkit-animation-delay: .3s;
+	      -moz-animation-delay: .3s;
+	    }
+		}
+	}
 }
