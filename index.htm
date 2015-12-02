@@ -20,11 +20,10 @@
     <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
     <link rel="stylesheet" href="f/css/main.css">
     <script src="f/js/common.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300,100&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script>
       $(document).ready(function() {
-        var $carousel = $(".preface-slider__holder");
-        $carousel.carouFredSel({
+        $(".preface-slider__holder").carouFredSel({
           align: false,
           responsive : true, 
           width: "100%",
@@ -40,8 +39,8 @@
             fx: "crossfade"
           }
         });
-        var $carousel = $(".sections-slider__holder");
-        $carousel.carouFredSel({
+        var $sitems;
+        $(".sections-slider__holder").carouFredSel({
           align: false,
           responsive : true, 
           width: "100%",
@@ -49,13 +48,49 @@
           auto: false,  
           next: ".sections-slider__nav_next",
           prev: ".sections-slider__nav_prev",
+          onCreate: function() {
+          	$sitems = $(".sections-slider__item");
+          },
           scroll: {
             timeoutDuration: 5000,
-            fx: "crossfade"
+            fx: "crossfade",
+            onBefore: function(data){
+            	for(var i=0;i<$sitems.length;i++){  
+								if($sitems[i] === data.items.visible.get(0)) {
+        					$(".screen__info").removeClass("screen__info_active");
+        					$(".screen__info").eq(i+1).addClass("screen__info_active");
+        				}
+						 	}
+            }
           },
           items: {
             height: 800
+          }
+        });
+        var $pitems;
+        $(".production-slider__holder").carouFredSel({ 
+          width: 1000,        
+          items: 3,
+          onCreate: function() {
+          	$pitems = $(".production-slider__item");
           },
+          scroll: {
+          	items: 1,
+          	onBefore: function(data){
+          		console.log($pitems);
+            	for(var i=0;i<$pitems.length;i++){  
+								if($pitems[i] === data.items.visible.get(0)) {
+        					$(".production__back").removeClass("production__back_active");
+        					$(".production__back").eq(i).addClass("production__back_active");
+        				}
+						 	}
+            }
+          },
+          align: false,
+          auto: {
+						duration: 1250,
+						timeoutDuration: 3500
+					}
         });
       });
     </script>
@@ -136,28 +171,68 @@
               <span class="sections-slider__link" style="top: 525px; left: 5px;"><a href="#"><b>Любые материалы</b></a></span>
               <span class="sections-slider__link" style="top: 270px; left: -340px;"><a href="#"><b>Любые материалы</b></a></span>
             </div>
+            <div class="sections-slider__item">
+              <img src="f/i/sections/2.png" alt="" width="981px", height="504px">
+              <span class="sections-slider__link" style="top: 130px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link" style="top: 105px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link" style="top: 525px; left: 5px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link" style="top: 270px; left: -340px;"><a href="#"><b>Любые материалы</b></a></span>
+            </div>
           </div>
           <a href="#" class="sections-slider__nav sections-slider__nav_next"></a>
           <a href="#" class="sections-slider__nav sections-slider__nav_prev"></a>
         </div>
       </div>
       <div class="screen__content">
-        <div class="screen__info">
+        <div class="screen__info screen__info_active">
           <h1 class="screen__title">Шкафы-купе</h1>
+          <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <h1 class="screen__title">Шкафы-купе2</h1>
+          <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <h1 class="screen__title">Шкафы-купе3</h1>
           <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
           <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
         </div>
       </div>
     </section>
-    <section class="screen screen_production">
+    <section class="screen production">
       <div class="screen__back">
         <div class="screen__back-holder">
-          <div class="holder">
-            фон3
-          </div>
+					<img src="f/i/production/1.jpg" class="production__back production__back_active" alt="">
+					<img src="f/i/production/2.jpg" class="production__back" alt="">
+					<img src="f/i/production/3.jpg" class="production__back" alt="">
+					<img src="f/i/production/4.jpg" class="production__back" alt="">
         </div>
       </div>
-      <div class="screen__content">контент3</div>
+      <div class="screen__content">
+				<div class="screen__info">
+          <h1 class="screen__title">Собственное<br>производство</h1>
+          <div class="production-slider">
+          	<div class="production-slider__holder">
+          		<div class="production-slider__item">
+          			<p class="production-slider__num">250<span>м<sup>2</sup></span></p>
+								<p class="production-slider__text">производственных<br> площадей</p>
+          		</div><div class="production-slider__item">
+          			<p class="production-slider__num">120</p>
+								<p class="production-slider__text">сотрудников<br> компании</p>
+          		</div><div class="production-slider__item">
+          			<p class="production-slider__num">>100</p>
+								<p class="production-slider__text">выполненных <br>проектов</p>
+          		</div><div class="production-slider__item">
+          			<p class="production-slider__num">>20<span>лет</span></p>
+								<p class="production-slider__text">на российском рынке </p>
+          		</div>
+          	</div>
+          </div>
+          <a href="#" class="anim-link">О компании<i></i><i></i><i></i></a>
+        </div>
+      </div>
     </section>
   </div>  
   <footer class="footer">
