@@ -84,7 +84,13 @@
         });
         $(window).scroll(function(){
           $('.preface-slider__pager').css('marginTop',$(window).scrollTop()-120);
+          if ($(window).height() - $(window).scrollTop() < $(window).height()/3*2) {
+            $('.sections-slider').addClass('active');
+          }
         });
+        if ($(window).height() - $(window).scrollTop() < $(window).height()/3*2) {
+          $('.sections-slider').addClass('active');
+        }
         var $pitems;
         $(".production-slider__holder").carouFredSel({ 
           synchronise: ['.production-holder', false],
