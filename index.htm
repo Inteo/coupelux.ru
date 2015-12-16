@@ -3,31 +3,39 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1024">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="f/i//favicon.ico">
     <title>CoupeLux</title>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="f/js/jquery-1.11.3.min.js"></script>
     <script src="f/js/bootstrap.min.js"></script>
+    <script src="f/js/jquery.transit.min.js"></script>
     <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
     <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
     <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
     <link rel="stylesheet" href="f/css/main.css">
+    <!--[if IE]>
+    <link rel="stylesheet" href="f/css/ie.css">
+    <![endif]-->
+    <script src="f/js/emerge.js"></script>
     <script src="f/js/common.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300,100&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script>
+    
       $(document).ready(function() {
+        var carousel1 = $(".preface-slider__holder");
         $(".preface-slider__holder").carouFredSel({
           align: false,
           responsive : true, 
+          transition: true, 
           width: "100%",
-          height: "auto",        
+          height: "variable",
+
           items: {
             height: $(".preface-slider .screen__back-holder").height(),
           },
@@ -37,12 +45,19 @@
           scroll: {
             timeoutDuration: 5000,
             fx: "crossfade"
+          },
+          onCreate : function () {
+            $(window).on('resize', function(){
+              carousel1.parent().add(carousel1).css('height', carousel1.children().first().height() + 'px');
+            }).trigger('resize');
           }
         });
+
         var $sitems;
         $(".sections-slider__holder").carouFredSel({
           align: false,
           responsive : true, 
+          transition: true, 
           width: "100%",
           height: 800, 
           auto: false,  
@@ -67,76 +82,100 @@
             height: 800
           }
         });
+        $(window).scroll(function(){
+          $('.preface-slider__pager').css('marginTop',$(window).scrollTop()-120);
+        });
         var $pitems;
         $(".production-slider__holder").carouFredSel({ 
-          width: 1000,        
+          synchronise: ['.production-holder', false],
+          width: 760,  
+          transition: true,      
           items: 3,
           onCreate: function() {
-          	$pitems = $(".production-slider__item");
+            $pitems = $(".production-slider__item");
+            $(".production-slider__item").each( function(index, element){
+              $(this).addClass('production-slider__item_'+Math.round(index+1));
+            });
           },
           scroll: {
           	items: 1,
           	onBefore: function(data){
-          		console.log($pitems);
-            	for(var i=0;i<$pitems.length;i++){  
-								if($pitems[i] === data.items.visible.get(0)) {
-        					$(".production__back").removeClass("production__back_active");
-        					$(".production__back").eq(i).addClass("production__back_active");
-        				}
+            	for(var i = 0; i < $pitems.length; i++){  
+								$(".production-slider__item").removeClass('production-slider__item_'+Math.round(i+1));
 						 	}
+              $(this).trigger("currentPosition", function(pos) {
+                $(".production-slider__item").each( function(index, element){
+                  $(this).addClass('production-slider__item_'+Math.round(index));
+                });
+              });
             }
           },
           align: false,
           auto: {
-						duration: 1250,
+						duration: 1200,
 						timeoutDuration: 3500
 					}
+        });
+
+        $(".production-holder").carouFredSel({
+          align: false,
+          responsive : true, 
+          transition: true, 
+          width: "100%",
+          height: "variable",  
+          items: {
+            height: "variable",
+          },      
+          scroll: {
+            fx: "crossfade"
+          },
+          auto: false
         });
       });
     </script>
   </head>
 <body>
   <div class="wrap clearfix">
-    <header class="header">
-      <a href="/" class="logo iconize-logo">&nbsp
-      </a><a href="#ham-popup" class="ham modal-ham">&nbsp</a>
+    <header class="header"><div class="emerge" data-effect="relax" data-origin="top"  data-scale="0.7" data-await="topslide">
+      <a href="/" class="logo iconize-logo">&nbsp;
+      </a><a href="#ham-popup" class="ham modal-ham">&nbsp;</a>
       <div class="header__control">
         <span class="header__phone"><span>+7 (4852)</span> 33-46-06</span>
-        <a href="#" class="header__size icon-size">&nbsp</a>
-        <a href="#" class="header__consult icon-consult">&nbsp</a>
+        <a href="#" class="header__size icon-size">&nbsp;</a>
+        <a href="#" class="header__consult icon-consult">&nbsp;</a>
       </div>
       
-    </header>
+    </div></header>
     <section class="screen preface-slider">
       <div class="screen__back">
-        <div class="screen__back-holder">
+        <div class="screen__back-holder emerge" data-effect="slide" data-spin="true" id="topslide" data-up="30px">
           <div class="preface-slider__holder">
             <div class="preface-slider__item">
-              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+              <img src="f/i/preface/1.jpg" alt="" width="1280" height="780">
             </div>
             <div class="preface-slider__item">
-              <img src="f/i/preface/2.jpg" alt="" width="1280px", height="780px">
+              <img src="f/i/preface/2.jpg" alt="" width="1280" height="780">
             </div>
             <div class="preface-slider__item">
-              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+              <img src="f/i/preface/1.jpg" alt="" width="1280" height="780">
             </div>
             <div class="preface-slider__item">
-              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+              <img src="f/i/preface/1.jpg" alt="" width="1280" height="780">
             </div>
             <div class="preface-slider__item">
-              <img src="f/i/preface/2.jpg" alt="" width="1280px", height="780px">
+              <img src="f/i/preface/2.jpg" alt="" width="1280" height="780">
             </div>
             <div class="preface-slider__item">
-              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+              <img src="f/i/preface/1.jpg" alt="" width="1280" height="780">
             </div>
             <div class="preface-slider__item">
-              <img src="f/i/preface/1.jpg" alt="" width="1280px", height="780px">
+              <img src="f/i/preface/1.jpg" alt="" width="1280" height="780">
             </div>
           </div>
-          <div class="preface-slider__pager"></div>
+          <!--<div class="preface-slider__pager"></div>-->
         </div>
       </div>
-      <div class="screen__content">
+      <div class="screen__content emerge" data-effect="slide" data-await="topslide" data-up="30px">
         <div class="screen__info">
           <h1 class="screen__title">Мебельная <br>фабрика</h1>
           <p class="screen__text">Вы воплощаем ваши самые смелые идеи и задумки в практичную реальность, сохраняя функциональность и эстетичность.</p>
@@ -151,32 +190,33 @@
             </div>
           </div>
         </div>
+        <div class="preface-slider__pager"></div>
       </div>
     </section>
     <section class="screen sections-slider">
       <div class="screen__back">
-        <div class="screen__back-holder">
+        <div class="screen__back-holder" style="position:relative">
           <div class="sections-slider__holder">
             <div class="sections-slider__item">
-              <img src="f/i/sections/1.png" alt="" width="981px", height="504px">
-              <span class="sections-slider__link" style="top: 130px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 105px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 525px; left: -45px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 270px; left: 300px;"><a href="#"><b>Любые материалы</b></a></span>
+              <img src="f/i/sections/1.png" alt="" width="981" height="504">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 130px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 105px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 525px; left: -45px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 270px; left: 300px;"><a href="#"><b>Любые материалы</b></a></span>
             </div>
             <div class="sections-slider__item">
-              <img src="f/i/sections/2.png" alt="" width="981px", height="504px">
-              <span class="sections-slider__link" style="top: 130px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 105px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 525px; left: 5px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 270px; left: -340px;"><a href="#"><b>Любые материалы</b></a></span>
+              <img src="f/i/sections/2.png" alt="" width="981" height="504">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 130px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 105px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 525px; left: 5px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 270px; left: -340px;"><a href="#"><b>Любые материалы</b></a></span>
             </div>
             <div class="sections-slider__item">
-              <img src="f/i/sections/2.png" alt="" width="981px", height="504px">
-              <span class="sections-slider__link" style="top: 130px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 105px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 525px; left: 5px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link" style="top: 270px; left: -340px;"><a href="#"><b>Любые материалы</b></a></span>
+              <img src="f/i/sections/2.png" alt="" width="981" height="504">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 130px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 105px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 525px; left: 5px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 270px; left: -340px;"><a href="#"><b>Любые материалы</b></a></span>
             </div>
           </div>
           <a href="#" class="sections-slider__nav sections-slider__nav_next"></a>
@@ -185,17 +225,17 @@
       </div>
       <div class="screen__content">
         <div class="screen__info screen__info_active">
-          <h1 class="screen__title">Шкафы-купе</h1>
+          <p class="h1 screen__title">Шкафы-купе</p>
           <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
           <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
         </div>
         <div class="screen__info">
-          <h1 class="screen__title">Шкафы-купе2</h1>
+          <p class="h1 screen__title">Шкафы-купе2</p>
           <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
           <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
         </div>
         <div class="screen__info">
-          <h1 class="screen__title">Шкафы-купе3</h1>
+          <p class="h1 screen__title">Шкафы-купе3</p>
           <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
           <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
         </div>
@@ -203,8 +243,8 @@
     </section>
     <section class="screen production">
       <div class="screen__back">
-        <div class="screen__back-holder">
-					<img src="f/i/production/1.jpg" class="production__back production__back_active" alt="">
+        <div class="screen__back-holder production-holder">
+					<img src="f/i/production/1.jpg" class="production__back" alt="">
 					<img src="f/i/production/2.jpg" class="production__back" alt="">
 					<img src="f/i/production/3.jpg" class="production__back" alt="">
 					<img src="f/i/production/4.jpg" class="production__back" alt="">
@@ -212,7 +252,7 @@
       </div>
       <div class="screen__content">
 				<div class="screen__info">
-          <h1 class="screen__title">Собственное<br>производство</h1>
+          <p class="h1 screen__title">Собственное<br>производство</p>
           <div class="production-slider">
           	<div class="production-slider__holder">
           		<div class="production-slider__item">
@@ -227,7 +267,19 @@
           		</div><div class="production-slider__item">
           			<p class="production-slider__num">>20<span>лет</span></p>
 								<p class="production-slider__text">на российском рынке </p>
-          		</div>
+          		</div><div class="production-slider__item">
+                <p class="production-slider__num">250<span>м<sup>2</sup></span></p>
+                <p class="production-slider__text">производственных<br> площадей</p>
+              </div><div class="production-slider__item">
+                <p class="production-slider__num">120</p>
+                <p class="production-slider__text">сотрудников<br> компании</p>
+              </div><div class="production-slider__item">
+                <p class="production-slider__num">>100</p>
+                <p class="production-slider__text">выполненных <br>проектов</p>
+              </div><div class="production-slider__item">
+                <p class="production-slider__num">>20<span>лет</span></p>
+                <p class="production-slider__text">на российском рынке </p>
+              </div>
           	</div>
           </div>
           <a href="#" class="anim-link">О компании<i></i><i></i><i></i></a>
@@ -241,7 +293,7 @@
         <p class="footer__phone">+7 (4852) <span>33-46-06</span></p>
         <p class="footer__madeby">
           <span>Создание сайта</span>
-          <a href="#" class="iconize-inteo">&nbsp</a>
+          <a href="#" class="iconize-inteo">&nbsp;</a>
         </p>
       </div>
       <div class="footer__control">
@@ -255,7 +307,7 @@
         </ul>
         <form action="/search/">
           <input class="footer__search" type="text" id="search" name="q" placeholder="Поиск">
-          <label for="search" class="icon-search">&nbsp</label>
+          <label for="search" class="icon-search">&nbsp;</label>
         </form>
       </div>
     </div>
@@ -263,7 +315,7 @@
   <div class="popups">
     <div class="ham-popup" id="ham-popup">
       <div class="ham-popup__head">
-        <a href="/" class="logo logo_small iconize-logo2">&nbsp</a>
+        <a href="/" class="logo logo_small iconize-logo2">&nbsp;</a>
         <ul class="ham-popup__menu">
           <li><a href="#">Каталог</a>
           </li><li><a href="#">О компании</a>
