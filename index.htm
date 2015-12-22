@@ -24,12 +24,12 @@
     <![endif]-->
     <script src="f/js/emerge.js"></script>
     <script src="f/js/common.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300,100&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script>
     
       $(document).ready(function() {
         var carousel1 = $(".preface-slider__holder");
-        $(".preface-slider__holder").carouFredSel({
+        carousel1.carouFredSel({
           align: false,
           responsive : true, 
           transition: true, 
@@ -122,7 +122,6 @@
 						timeoutDuration: 3500
 					}
         });
-
         $(".production-holder").carouFredSel({
           align: false,
           responsive : true, 
@@ -181,11 +180,11 @@
           <!--<div class="preface-slider__pager"></div>-->
         </div>
       </div>
-      <div class="screen__content emerge" data-effect="slide" data-await="topslide" data-up="30px">
+      <div class="screen__content">
         <div class="screen__info">
-          <h1 class="screen__title">Мебельная <br>фабрика</h1>
-          <p class="screen__text">Вы воплощаем ваши самые смелые идеи и задумки в практичную реальность, сохраняя функциональность и эстетичность.</p>
-          <div class="scroll-cursor">
+          <h1 class="screen__title emerge" data-effect="relax" data-await="topslide" data-up="30px">Мебельная <br>фабрика</h1>
+          <p class="screen__text emerge" data-hold="300" data-effect="relax" data-await="topslide" data-up="30px">Вы воплощаем ваши самые смелые идеи и задумки в практичную реальность, сохраняя функциональность и эстетичность.</p>
+          <div class="scroll-cursor emerge" data-hold="300" data-effect="relax" data-await="topslide" data-up="30px">
             <div class="scroll-cursor__mouse">
               <div class="scroll-cursor__wheel"></div>
             </div>
