@@ -23,4 +23,11 @@ $(function(){
       }
     }
   });
+  $(".switcher__control button").click(function(){
+    var i = $(this).data("switcher-btn");
+    $(this).closest(".switcher__control").find("button").removeClass("active");
+    $(this).addClass("active");
+    $(this).closest(".switcher").find(".switcher__content").removeClass("switcher__content_active");
+    $(this).closest(".switcher").find(".switcher__content" + "#" + i).addClass("switcher__content_active");
+  })
 });

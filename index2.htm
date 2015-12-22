@@ -61,6 +61,13 @@
           scene1.on("enter", function (event) {
             scene1.removeClassToggle();
          });
+        var scene2 = new ScrollMagic.Scene({triggerElement: "#countertopsCell"})
+          .setClassToggle("#countertopsCell", "activated")
+          .addTo(controller);
+
+          scene2.on("enter", function (event) {
+            scene2.removeClassToggle();
+         });
 
           $(document).scroll(function(){
             if(controller.scrollPos() > 0) {
@@ -93,7 +100,18 @@
         contain.find('.screen__link').removeClass('active');
         contain.find('[data-linked-plus="'+c+'"]').closest('.screen__link').addClass('active');
       });
-
+      /*if($(".i-monitor").hasClass("i-monitor_active")) {
+        $(".i-monitor__content").attr("src", ($(".i-monitor__content").data("monitor-dproject")));
+      }*/
+      $(".scheme-switcher .switcher__control button").click(function(){
+        if($(this).data() == "scheme-cont01") {
+          $(".i-monitor").addClass("i-monitor_active");
+        }
+        else {
+          $(".i-monitor").removeClass("i-monitor_active");
+          $(".i-monitor__content").attr("src", "");
+        }
+      })
       });
     </script>
   </head>
@@ -235,8 +253,198 @@
         </div>
       </div>
     </section>
-
-
+    <section class="screen screen_inner screen_gray">
+      <div class="screen__content">
+        <div class="screen__info">
+          <p class="h1 screen__title">Столешницы</p>
+          <p class="screen__text">Наши столешницы отличаются высоким качеством, элегантностью и надежностью. Широкий ассортимент столешниц любого декора и необходимой толщины — 12, 16, 25, 40 или 50 мм позволит создать и подчеркнуть свой собственный стиль кухни.</p>
+        </div>
+        <div class="screen__illustration" id="countertopsCell">
+          <div class="screen__illustration-row">
+            <div class="screen__illustration-cell">
+              <div class="i-countertops">
+                <div class="i-countertops__1 animated"><img src="f/i/countertops-1.png" alt="" class="animated"></div>
+                <div class="i-countertops__2 animated"><img src="f/i/countertops-2.png" alt="" class="animated"></div>
+                <span class="screen__link animated" style="top: 320px; left: 405px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops01"></a></span>
+                <span class="screen__link animated" style="top: 355px; left: 185px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops02"></a></span>
+                <span class="screen__link animated" style="top: 180px; left: 75px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops03"></a></span>
+                <span class="screen__link animated" style="top: 440px; left: 330px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops04"></a></span>
+              </div>
+            </div>
+            <div class="screen__illustration-cell screen__illustration-cell_content">
+              <ul class="panel-group i-content" id="countertopsLinks" role="tablist" aria-multiselectable="false">
+                <li class="panel panel-default">
+                  <div role="tab" id="countertopsHeading01"><a class="i-content__link" role="button" data-toggle="collapse" href="#countertops01" aria-controls="countertops01" data-parent="#countertopsLinks" aria-expanded="false" data-linked-text="countertops01">Надежный материал</a></div>
+                  <div id="countertops01" class="panel-collapse collapse" role="tabpanel" aria-labelledby="countertopsHeading01">
+                    <ul class="panel-body">
+                      <li>Акриловый камень</li>
+                      <li>Кварцевый агломерат</li>
+                      <li>Облицовка пластиком</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="panel panel-default">
+                  <div role="tab" id="countertopsHeading02"><a class="i-content__link" role="button" data-toggle="collapse" href="#countertops02" aria-controls="countertops02" data-parent="#countertopsLinks" aria-expanded="false" data-linked-text="countertops02">Формы любой сложности</a></div>
+                  <div id="countertops02" class="panel-collapse collapse" role="tabpanel" aria-labelledby="countertopsHeading02">
+                    <ul class="panel-body">
+                      <li>Без стыков</li>
+                      <li>Без швов</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="panel panel-default">
+                  <div role="tab" id="countertopsHeading03"><a class="i-content__link" role="button" data-toggle="collapse" href="#countertops03" aria-controls="countertops03" data-parent="#countertopsLinks" aria-expanded="false" data-linked-text="countertops03">Стеновые панели</a></div>
+                  <div id="countertops03" class="panel-collapse collapse" role="tabpanel" aria-labelledby="countertopsHeading03">
+                    <ul class="panel-body">
+                      <li>Любого цвета</li>
+                      <li>Фотопечать</li>
+                      <li>С подсветкой</li>
+                      <li>Под камень</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="panel panel-default">
+                  <div role="tab" id="countertopsHeading04"><a class="i-content__link" role="button" data-toggle="collapse" href="#countertops04" aria-controls="countertops04" data-parent="#countertopsLinks" aria-expanded="false" data-linked-text="countertops04">Декоративные элементы</a></div>
+                  <div id="countertops04" class="panel-collapse collapse" role="tabpanel" aria-labelledby="countertopsHeading04">
+                    <ul class="panel-body">
+                      <li>Торцевые кромки</li>
+                      <li>Интегрированные бортики</li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="screen screen_inner screen_default">
+      <div class="screen__content switcher switcher_fittings">
+        <div class="screen__info">
+          <p class="h1 screen__title">Фурнитура</p>
+          <p class="screen__text">Отлично подобранная ручка, как ручка-рейлинг, круглая или квадратная, так и деликатно интегрированная в фасад способна придать кухне индивидуальный облик.</p>
+          <div class="fittings-control switcher__control"><div class="btn-group" role="group">
+            <button type="button" class="btn btn-default btn_unbg active" data-switcher-btn="fittings-cont01">Нижняя</button>
+            <button type="button" class="btn btn-default btn_unbg" data-switcher-btn="fittings-cont02">Верхняя</button>
+          </div></div>
+        </div>
+        <div class="switcher__holder">
+          <div class="screen__illustration switcher__content switcher__content_active"  id="fittings-cont01">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-fittings">
+                  <div class="i-fittings__1"><img src="f/i/fittings-1.png" alt=""></div>
+                  <span class="screen__link animated" style="top: 480px; left: 170px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings01"></a></span>
+                  <span class="screen__link animated" style="top: 205px; left: 255px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings02"></a></span>
+                  <span class="screen__link animated" style="top: 360px; left: 285px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings03"></a></span>
+                </div>
+              </div>
+              <div class="screen__illustration-cell screen__illustration-cell_content">
+                <ul class="panel-group i-content" id="fittingsLinks" role="tablist" aria-multiselectable="false">
+                  <li class="panel panel-default">
+                    <div role="tab" id="fittingsHeading01"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings01" aria-controls="fittings01" data-parent="#fittingsLinks" aria-expanded="false" data-linked-text="fittings01">Надежные механизмы</a></div>
+                    <div id="fittings01" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading01">
+                      <ul class="panel-body">
+                        <li>Петли Blum с доводчиком</li>
+                        <li>Механизмы поджима</li>
+                        <li>Выдвижные ящики Innotech</li>
+                        <li>Выдвижные корзины</li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="panel panel-default">
+                    <div role="tab" id="fittingsHeading02"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings02" aria-controls="fittings02" data-parent="#fittingsLinks" aria-expanded="false" data-linked-text="fittings02">Ручки</a></div>
+                    <div id="fittings02" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading02">
+                      <ul class="panel-body">
+                        <li>Матовые</li>
+                        <li>Хромированные</li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="panel panel-default">
+                    <div role="tab" id="fittingsHeading03"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings03" aria-controls="fittings03" data-parent="#fittingsLinks" aria-expanded="false" data-linked-text="fittings03">Сушки</a></div>
+                    <div id="fittings03" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading03">
+                      <ul class="panel-body">
+                        <li>Выдвижные</li>
+                        <li>Со встроенным светильником</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="screen__illustration switcher__content"  id="fittings-cont02">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-fittings">
+                  <div class="i-fittings__1"><img src="f/i/fittings-2.png" alt=""></div>
+                  <span class="screen__link animated" style="top: 290px; left: 95px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings04"></a></span>
+                  <span class="screen__link animated" style="top: 445px; left: 185px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings05"></a></span>
+                  <span class="screen__link animated" style="top: 120px; left: 340px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings06"></a></span>
+                </div>
+              </div>
+              <div class="screen__illustration-cell screen__illustration-cell_content">
+                <ul class="panel-group i-content" id="fittingsLinks2" role="tablist" aria-multiselectable="false">
+                  <li class="panel panel-default">
+                    <div role="tab" id="fittingsHeading04"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings04" aria-controls="fittings04" data-parent="#fittingsLinks2" aria-expanded="false" data-linked-text="fittings04">Надежные механизмы</a></div>
+                    <div id="fittings04" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading04">
+                      <ul class="panel-body">
+                        <li>Петли Blum с доводчиком</li>
+                        <li>Механизмы поджима</li>
+                        <li>Выдвижные ящики Innotech</li>
+                        <li>Выдвижные корзины</li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="panel panel-default">
+                    <div role="tab" id="fittingsHeading05"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings05" aria-controls="fittings05" data-parent="#fittingsLinks2" aria-expanded="false" data-linked-text="fittings05">Светильники</a></div>
+                    <div id="fittings05" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading05">
+                      <ul class="panel-body">
+                        <li>Точечные</li>
+                        <li>Сенсорные</li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="panel panel-default">
+                    <div role="tab" id="fittingsHeading06"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings06" aria-controls="fittings06" data-parent="#fittingsLinks2" aria-expanded="false" data-linked-text="fittings06">Ручки</a></div>
+                    <div id="fittings06" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading06">
+                      <ul class="panel-body">
+                        <li>Матовые</li>
+                        <li>Хромированные</li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="screen screen_inner screen_scheme">
+      <div class="screen__content">
+        <div class="screen__info">
+          <p class="h1 screen__title">Схема работы</p>
+          <p class="screen__text">Простая и удобная схема работы позволяет в кратчайшие сроки эффективно выполнять заказы любой сложности и получать гарантированный результат.</p>
+        </div>
+        <div class="screen__illustration">
+          <div class="screen__illustration-row">
+            <div class="screen__illustration-cell">
+              <div class="i-monitor i-monitor_active">
+                <img src="f/i/monitor-dproject.jpg" alt="" class="i-monitor__content" data-monitor-dproject="f/i/monitor-dproject.jpg">
+              </div>
+            </div>
+            <div class="screen__illustration-cell screen__illustration-cell_content switcher scheme-switcher">
+              <div class="switcher__control"><div class="btn-group" role="group">
+                <button type="button" class="btn btn-default btn_unbg active" data-switcher-btn="scheme-cont01">Да</button>
+                <button type="button" class="btn btn-default btn_unbg" data-switcher-btn="scheme-cont02">Нет</button>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>  
   <footer class="footer">
     <div class="holder">
