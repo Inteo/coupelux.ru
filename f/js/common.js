@@ -5,12 +5,73 @@ $(document).ready(function(){
   if ($.browser.mobile) {
     $('body').addClass('mobile');
   }
+  $(".input.valid").unbind().blur( function(){
+    var id = $(this).attr('id');
+    var val = $(this).val();
+    switch(id)
+    {
+      case "r-email":
+      case "m-email":
+      case "c-email":
+      case "s-email":
+        var rv_email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+        if(val != '' && rv_email.test(val))
+        {
+          $(this).addClass('input_success');
+          $(this).next().next('.input-error').removeClass("input-error_show");
+        }
+        else
+        {
+          $(this).removeClass('input_success').addClass('input_error');
+          $(this).next().next('.input-error').addClass("input-error_show")
+                                             .animate({'paddingLeft':'10px'},400)
+                                             .animate({'paddingLeft':'5px'},400);
+        }
+      break;  
+      case "m-name":
+      case "r-name":
+      case "c-name":
+      case "s-name":
+        var rv_name = /^[a-zA-Zа-яА-Я]+$/;
+        if(val.length > 2 && val != '' && rv_name.test(val))
+        {
+          $(this).addClass('input_success');
+          $(this).next().next('.input-error').removeClass("input-error_show");
+        }
+        else
+        {
+          $(this).removeClass('input_success').addClass('input_error');
+          $(this).next().next('.input-error').addClass("input-error_show")
+                                             .animate({'paddingLeft':'10px'},400)
+                                             .animate({'paddingLeft':'5px'},400);
+        }
+      break;   
+      case "r-phone":
+      case "m-phone":
+      case "c-phone":
+      case "s-phone":
+        var rv_phone = /^\d+$/;
+        if(val.length > 5 && rv_phone.test(val) && val != '')
+        {
+           $(this).addClass('input_success');
+           $(this).next().next('.input-error').removeClass("input-error_show");
+        }
+        else
+        {
+          $(this).removeClass('input_success').addClass('input_error');
+          $(this).next().next('.input-error').addClass("input-error_show")
+                                             .animate({'paddingLeft':'10px'},400)
+                                             .animate({'paddingLeft':'5px'},400);
+        }
+      break;      
+    } 
+  }); 
 });
 
 $(function(){
 	$(".modal-ham").fancybox({
     type: 'inline',
-    wrapCSS: 'ham-popup',
+    wrapCSS: 'popup ham-popup',
     fixed: true,
     title: '',
     padding: 0,
@@ -22,6 +83,41 @@ $(function(){
         //fixed: false
       }
     }
+  });
+  $(".modal-inline").fancybox({
+    type: 'inline',
+    fixed:true,
+    wrapCSS: 'popup',
+    title: '',
+    padding: 0,
+    autoResize: false,
+    autoCenter: false,
+    fitToView: false,
+    //scrolling   : 'no',
+    helpers: {
+      overlay: {
+        /*fixed: false*/
+      }
+    },
+    afterLoad: function() {
+      var i = this;
+      setTimeout(function(){
+        i.content.find(".i-monitor__content").addClass("i-monitor__content_active");
+        i.content.find(".i-monitor").addClass("i-monitor_active");
+      }, 100);
+    },
+    beforeClose: function() {
+      this.content.find(".i-monitor__content").removeClass("i-monitor__content_active");
+      this.content.find(".i-monitor").removeClass("i-monitor_active");
+    }
+  });
+  $(".form-done").click(function(){
+    $(".i-monitor__content").addClass("i-monitor__content_done");
+    $('.i-monitor__text').animate({opacity: 0}, 100);
+    $('.i-monitor__text').after("<p class='i-monitor__text i-monitor__text-done' style='margin-top: -52px; opacity: 0;'>Заявка успешно отправлена</p>");
+    $(".i-monitor__text-done").animate({opacity: 1}, 200);
+    $(this).closest(".form").animate({opacity: 0}, 200);
+    return false;
   });
   $(".switcher__control button").click(function(){
     var i = $(this).data("switcher-btn");

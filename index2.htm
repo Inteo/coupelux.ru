@@ -61,13 +61,6 @@
           scene1.on("enter", function (event) {
             scene1.removeClassToggle();
          });
-        var scene2 = new ScrollMagic.Scene({triggerElement: "#countertopsCell"})
-          .setClassToggle("#countertopsCell", "activated")
-          .addTo(controller);
-
-          scene2.on("enter", function (event) {
-            scene2.removeClassToggle();
-         });
 
           $(document).scroll(function(){
             if(controller.scrollPos() > 0) {
@@ -100,18 +93,70 @@
         contain.find('.screen__link').removeClass('active');
         contain.find('[data-linked-plus="'+c+'"]').closest('.screen__link').addClass('active');
       });
-      /*if($(".i-monitor").hasClass("i-monitor_active")) {
-        $(".i-monitor__content").attr("src", ($(".i-monitor__content").data("monitor-dproject")));
-      }*/
-      $(".scheme-switcher .switcher__control button").click(function(){
-        if($(this).data() == "scheme-cont01") {
-          $(".i-monitor").addClass("i-monitor_active");
+      if($(".scheme .switcher__control button.active").data("switcher-btn") == "scheme-cont01") {
+        $(".request-form").addClass("hide");
+        $(".metering-form").removeClass("hide");
+      }
+      else {
+        $(".metering-form").addClass("hide");
+        $(".request-form").removeClass("hide");
+        $(".scheme .i-monitor__ico").addClass('i-monitor__ico_request');
+        $(".scheme .i-monitor__text").text("Заявка на проект");
+      }
+      $(".scheme .switcher__control button").click(function(){
+        if($(this).data("switcher-btn") == "scheme-cont01") {
+          $(".scheme .i-monitor").addClass("i-monitor_active");
+          $(".i-monitor__dproject").addClass("i-monitor__dproject_active");
+          $(".scheme .i-monitor__ico").removeClass('i-monitor__ico_request');
+          $(".scheme .i-monitor__text").text("Вызов замерщика");
+          $(".request-form").addClass("hide");
+          $(".metering-form").removeClass("hide");
         }
         else {
-          $(".i-monitor").removeClass("i-monitor_active");
-          $(".i-monitor__content").attr("src", "");
+          $(".scheme .i-monitor").removeClass("i-monitor_active");
+          $(".i-monitor__dproject").removeClass("i-monitor__dproject_active");
+          $(".request-form").removeClass("hide");
+          $(".metering-form").addClass("hide");
+          $(".scheme .i-monitor__ico").addClass('i-monitor__ico_request');
+          $(".scheme .i-monitor__text").text("Заявка на проект");
         }
-      })
+      });
+      $(".scheme__btn").click(function(){
+        $(".scheme-slide").addClass("scheme-slide_form");
+        $(".scheme .i-monitor").addClass("i-monitor_active");
+        $(".scheme .i-monitor__content").addClass("i-monitor__content_active");
+        return false;
+      });
+      $(".form-close").click(function(){
+        $(".scheme-slide").removeClass("scheme-slide_form");
+        $(".scheme .i-monitor__content").removeClass("i-monitor__content_active");
+        $(".scheme .i-monitor").removeClass("i-monitor_active");
+        return false;
+      });
+      $(".scheme .i-content li a").hover(function(){
+        
+        if($(this).data("img"))
+        {
+          $(".i-monitor__img").attr("src", $(this).data("img")).stop(true, true).animate({'opacity':'1'},
+          {
+            duration: 50,
+            complete: function(){
+              $(".scheme .i-monitor").addClass("i-monitor_active");
+            }
+          });
+        }
+      },
+      function(){
+        $(".i-monitor__img").stop(true, true).animate({'opacity':'0'},
+        {
+          duration: 50,
+          complete: function(){
+            if($(".scheme .switcher__control button.active").data("switcher-btn") != "scheme-cont01") {
+              $(".scheme .i-monitor").removeClass("i-monitor_active");
+            }
+          }
+        });
+      });
       });
     </script>
   </head>
@@ -122,8 +167,8 @@
       </a><a href="#ham-popup" class="ham modal-ham">&nbsp;</a>
       <div class="header__control">
         <span class="header__phone"><span>+7 (4852)</span> 33-46-06</span>
-        <a href="#" class="header__size icon-size">&nbsp;</a>
-        <a href="#" class="header__consult icon-consult">&nbsp;</a>
+        <a href="#metering-popup" class="header__size icon-size modal-inline">&nbsp;</a>
+        <a href="#consult-popup" class="header__consult icon-consult modal-inline">&nbsp;</a>
       </div>
       
     </div></header>
@@ -259,12 +304,12 @@
           <p class="h1 screen__title">Столешницы</p>
           <p class="screen__text">Наши столешницы отличаются высоким качеством, элегантностью и надежностью. Широкий ассортимент столешниц любого декора и необходимой толщины — 12, 16, 25, 40 или 50 мм позволит создать и подчеркнуть свой собственный стиль кухни.</p>
         </div>
-        <div class="screen__illustration" id="countertopsCell">
+        <div class="screen__illustration">
           <div class="screen__illustration-row">
             <div class="screen__illustration-cell">
               <div class="i-countertops">
-                <div class="i-countertops__1 animated"><img src="f/i/countertops-1.png" alt="" class="animated"></div>
-                <div class="i-countertops__2 animated"><img src="f/i/countertops-2.png" alt="" class="animated"></div>
+                <div class="i-countertops__1"><img src="f/i/countertops-1.png" alt=""></div>
+                <div class="i-countertops__2"><img src="f/i/countertops-2.png" alt=""></div>
                 <span class="screen__link animated" style="top: 320px; left: 405px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops01"></a></span>
                 <span class="screen__link animated" style="top: 355px; left: 185px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops02"></a></span>
                 <span class="screen__link animated" style="top: 180px; left: 75px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops03"></a></span>
@@ -422,7 +467,7 @@
         </div>
       </div>
     </section>
-    <section class="screen screen_inner screen_scheme">
+    <section class="screen screen_inner screen_scheme scheme">
       <div class="screen__content">
         <div class="screen__info">
           <p class="h1 screen__title">Схема работы</p>
@@ -430,16 +475,75 @@
         </div>
         <div class="screen__illustration">
           <div class="screen__illustration-row">
-            <div class="screen__illustration-cell">
-              <div class="i-monitor i-monitor_active">
-                <img src="f/i/monitor-dproject.jpg" alt="" class="i-monitor__content" data-monitor-dproject="f/i/monitor-dproject.jpg">
+            <div class="screen__illustration-cell" style="vertical-align: top">
+              <div class="i-monitor">
+                <img src="f/i/monitor-dproject.jpg" alt="" class="i-monitor__dproject">
+                <img src="" alt="" class="i-monitor__img">
+                <div class="i-monitor__content">
+                  <i class="i-monitor__ico"></i>
+                  <p class="i-monitor__text">Вызов замерщика</p>
+                </div>
               </div>
             </div>
-            <div class="screen__illustration-cell screen__illustration-cell_content switcher scheme-switcher">
-              <div class="switcher__control"><div class="btn-group" role="group">
-                <button type="button" class="btn btn-default btn_unbg active" data-switcher-btn="scheme-cont01">Да</button>
-                <button type="button" class="btn btn-default btn_unbg" data-switcher-btn="scheme-cont02">Нет</button>
-              </div></div>
+            <div class="screen__illustration-cell screen__illustration-cell_content switcher">
+              <div class="scheme-slide">
+                <div class="scheme-slide__screen">
+                  <p class="scheme__is-dproject">Есть ли у вас дизайн-проект?</p>
+                  <div class="switcher__control"><div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default btn_unbg" data-switcher-btn="scheme-cont01">Да</button>
+                    <button type="button" class="btn btn-default btn_unbg active" data-switcher-btn="scheme-cont02">Нет</button>
+                  </div></div>
+                  <div class="switcher__holder">
+                    <div class="switcher__content" id="scheme-cont01">
+                      <ul class="i-content">
+                        <li><a href="#" data-img="f/i/monitor-dproject2.jpg">Вызов замерщика</a></li>
+                        <li><a href="#" data-img="f/i/monitor-dproject3.jpg">Согласование и оплата</a></li>
+                        <li><a href="#" data-img="f/i/monitor-dproject.jpg">Производство мебели</a></li>
+                        <li><a href="#">Сборка и установка</a></li>
+                      </ul>
+                      <a href="#" class="btn btn-orange scheme__btn"><i class="icon-size-white"></i>Вызвать замерщика</a>
+                    </div>
+                    <div class="switcher__content switcher__content_active" id="scheme-cont02">
+                      <ul class="i-content">
+                        <li><a href="#" data-img="f/i/monitor-dproject2.jpg">Оформление заявки</a></li>
+                        <li><a href="#" data-img="f/i/monitor-dproject3.jpg">Разработка дизайн-проекта</a></li>
+                        <li><a href="#" data-img="f/i/monitor-dproject.jpg">Выезд замерщика</a></li>
+                        <li><a href="#">Согласование и оплата</a></li>
+                        <li><a href="#">Производство мебели</a></li>
+                        <li><a href="#">Сборка и установка</a></li>
+                      </ul>
+                      <a href="#" class="btn btn-orange scheme__btn"><i class="icon-request"></i>Отправить заявку</a>
+                    </div>
+                  </div>
+                </div><div class="scheme-slide__screen">
+                  <div class="form request-form">
+                    <p class="form__title">Заявка на проект</p><span class="form__close form-close"></span>
+                    <form id="requestform" method="post" action="/send/">
+                      <input type="text" class="input valid" placeholder="Ваше имя" name="r-name" id="r-name"><label for="r-name">&nbsp;</label>
+                      <p class="input-error">Введите корректное имя !</p>
+                      <input type="tel" class="input valid" placeholder="Телефон" name="r-phone" id="r-phone"><label for="r-phone">&nbsp;</label>
+                      <p class="input-error">Введите корректный телефон !</p>
+                      <input type="email" class="input valid" placeholder="Электронная почта" name="r-email" id="r-email"><label for="r-email">&nbsp;</label>
+                      <p class="input-error">Введите корректный email !</p>
+                      <textarea class="input" placeholder="Комментарии к проекту" name="comment"></textarea>
+                      <a href="#" class="btn btn-orange form-done">Отправить</a>
+                    </form>
+                  </div>
+                  <div class="form metering-form">
+                    <p class="form__title">Вызов замерщика</p><span class="form__close form-close"></span>
+                    <form id="meteringform" method="post" action="/send/">
+                      <input type="text" class="input valid" placeholder="Ваше имя" name="m-name" id="m-name"><label for="m-name">&nbsp;</label>
+                      <p class="input-error">Введите корректное имя !</p>
+                      <input type="tel" class="input valid" placeholder="Телефон" name="m-phone" id="m-phone"><label for="m-phone">&nbsp;</label>
+                      <p class="input-error">Введите корректный телефон !</p>
+                      <input type="email" class="input valid" placeholder="Электронная почта" name="m-email" id="m-email"><label for="m-email">&nbsp;</label>
+                      <p class="input-error">Введите корректный email !</p>
+                      <textarea class="input" placeholder="Укажите удобное для вас время и желаемую дату" name="comment"></textarea>
+                      <a href="#" class="btn btn-orange form-done">Отправить</a>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -472,19 +576,19 @@
     </div>
   </footer>
   <div class="popups">
-    <div class="ham-popup" id="ham-popup">
-      <div class="ham-popup__head">
+    <div class="popup ham-popup" id="ham-popup">
+      <div class="popup__head">
         <a href="/" class="logo logo_small iconize-logo2">&nbsp;</a>
-        <ul class="ham-popup__menu">
+        <ul class="popup__menu">
           <li><a href="#">Каталог</a>
           </li><li><a href="#">О компании</a>
           </li><li><a href="#">Дизайнерам</a>
           </li><li><a href="#">Контакты</a></li>
         </ul>
-        <div class="ham-popup__control">
-          <span class="ham-popup__phone"><span>+7 (4852)</span> 33-46-06</span>
-          <a href="#" class="ham-popup__size"><i class="icon-size"></i>Замерщик</a>
-          <a href="#" class="ham-popup__consult"><i class="icon-consult"></i>Консультация</a>
+        <div class="popup__control">
+          <span class="popup__phone"><span>+7 (4852)</span> 33-46-06</span>
+          <a href="#metering-popup" class="popup__size modal-inline"><i class="icon-size"></i>Замерщик</a>
+          <a href="#consult-popup" class="popup__consult modal-inline"><i class="icon-consult"></i>Консультация</a>
         </div>
       </div>
       <div class="section-menu">
@@ -567,6 +671,58 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup consult-popup" id="consult-popup">
+      <div class="holder">
+        <div class="popup__half">
+          <div class="i-monitor">
+            <div class="i-monitor__content">
+              <i class="i-monitor__ico"></i>
+              <p class="i-monitor__text">Консультация дизайнера</p>
+            </div>
+          </div>
+        </div><div class="popup__half">
+          <div class="form">
+            <p class="form__title">Консультация</p>
+            <form id="consultform" method="post" action="/send/">
+              <input type="text" class="input valid" placeholder="Ваше имя" name="c-name" id="c-name"><label for="c-name">&nbsp;</label>
+              <p class="input-error">Введите корректное имя !</p>
+              <input type="tel" class="input valid" placeholder="Телефон" name="c-phone" id="c-phone"><label for="c-phone">&nbsp;</label>
+              <p class="input-error">Введите корректный телефон !</p>
+              <input type="email" class="input valid" placeholder="Электронная почта" name="c-email" id="c-email"><label for="c-email">&nbsp;</label>
+              <p class="input-error">Введите корректный email !</p>
+              <textarea class="input" placeholder="Ваш вопрос" name="question"></textarea>
+              <a href="#" class="btn btn-orange form-done">Отправить</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup metering-popup" id="metering-popup">
+      <div class="holder">
+        <div class="popup__half">
+          <div class="i-monitor">
+            <div class="i-monitor__content">
+              <i class="i-monitor__ico"></i>
+              <p class="i-monitor__text">Вызов замерщика</p>
+            </div>
+          </div>
+        </div><div class="popup__half">
+          <div class="form">
+            <p class="form__title">Вызов замерщика</p>
+            <form id="sizeform" method="post" action="/send/">
+              <input type="text" class="input valid" placeholder="Ваше имя" name="s-name" id="s-name"><label for="s-name">&nbsp;</label>
+              <p class="input-error">Введите корректное имя !</p>
+              <input type="tel" class="input valid" placeholder="Телефон" name="s-phone" id="s-phone"><label for="s-phone">&nbsp;</label>
+              <p class="input-error">Введите корректный телефон !</p>
+              <input type="email" class="input valid" placeholder="Электронная почта" name="s-email" id="s-email"><label for="s-email">&nbsp;</label>
+              <p class="input-error">Введите корректный email !</p>
+              <textarea class="input" placeholder="Укажите удобное для вас время и желаемую дату" name="comment"></textarea>
+              <a href="#" class="btn btn-orange form-done">Отправить</a>
+            </form>
           </div>
         </div>
       </div>
