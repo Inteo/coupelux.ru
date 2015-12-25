@@ -130,7 +130,9 @@
       $(".form-close").click(function(){
         $(".scheme-slide").removeClass("scheme-slide_form");
         $(".scheme .i-monitor__content").removeClass("i-monitor__content_active");
-        $(".scheme .i-monitor").removeClass("i-monitor_active");
+        if($(".scheme .switcher__control button.active").data("switcher-btn") != "scheme-cont01") {
+          $(".scheme .i-monitor").removeClass("i-monitor_active");
+        }
         return false;
       });
       $(".scheme .i-content li a").hover(function(){
@@ -542,6 +544,10 @@
                       <a href="#" class="btn btn-orange form-done">Отправить</a>
                     </form>
                   </div>
+                  <div class="form-thx">
+                    <p>Спасибо за проявленный интерес к нашей компании. Мы свяжемся с вами в течение 24 часов.</p>
+                    <a href="#" class="btn btn-orange form-reset">Спасибо!</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -698,6 +704,10 @@
               <a href="#" class="btn btn-orange form-done">Отправить</a>
             </form>
           </div>
+          <div class="form-thx">
+            <p>Спасибо за проявленный интерес к нашей компании. Мы свяжемся с вами в течение 24 часов.</p>
+            <a href="#" class="btn btn-orange form-reset">Спасибо!</a>
+          </div>
         </div>
       </div>
     </div>
@@ -723,6 +733,10 @@
               <textarea class="input" placeholder="Укажите удобное для вас время и желаемую дату" name="comment"></textarea>
               <a href="#" class="btn btn-orange form-done">Отправить</a>
             </form>
+          </div>
+          <div class="form-thx">
+            <p>Спасибо за проявленный интерес к нашей компании. Мы свяжемся с вами в течение 24 часов.</p>
+            <a href="#" class="btn btn-orange form-reset">Спасибо!</a>
           </div>
         </div>
       </div>

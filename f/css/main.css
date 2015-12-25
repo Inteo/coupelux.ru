@@ -1286,7 +1286,7 @@ a:hover .icon-consult {
 }
 .popup__half {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: 50%;
   padding-top: 80px;
 }
@@ -3199,4 +3199,14 @@ a:hover .icon-consult {
 }
 .consult-popup .i-monitor__ico {
   background-image: url(../../f/i/consult.png);
+}
+.form-thx {
+  opacity: 0;
+  padding-top: 200px;
+  display: none;
+}
+.form-thx p {
+  color: #90a4ae;
+  line-height: 30px;
+  margin-bottom: 40px;
 }

@@ -417,14 +417,17 @@
         </div>
       </div>
     </div>
-    <div class="popup" id="consult-popup">
-      <div class="form">
-        <div class="holder">
-          <div class="popup__half">
-            <div class="i-popup-monitor">
-
+    <div class="popup consult-popup" id="consult-popup">
+      <div class="holder">
+        <div class="popup__half">
+          <div class="i-monitor">
+            <div class="i-monitor__content">
+              <i class="i-monitor__ico"></i>
+              <p class="i-monitor__text">Консультация дизайнера</p>
             </div>
-          </div><div class="popup__half">
+          </div>
+        </div><div class="popup__half">
+          <div class="form">
             <p class="form__title">Консультация</p>
             <form id="consultform" method="post" action="/send/">
               <input type="text" class="input valid" placeholder="Ваше имя" name="c-name" id="c-name"><label for="c-name">&nbsp;</label>
@@ -434,20 +437,27 @@
               <input type="email" class="input valid" placeholder="Электронная почта" name="c-email" id="c-email"><label for="c-email">&nbsp;</label>
               <p class="input-error">Введите корректный email !</p>
               <textarea class="input" placeholder="Ваш вопрос" name="question"></textarea>
-              <a href="#" class="btn btn-orange">Отправить</a>
+              <a href="#" class="btn btn-orange form-done">Отправить</a>
             </form>
+          </div>
+          <div class="form-thx">
+            <p>Спасибо за проявленный интерес к нашей компании. Мы свяжемся с вами в течение 24 часов.</p>
+            <a href="#" class="btn btn-orange form-reset">Спасибо!</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="popup" id="metering-popup">
-      <div class="form">
-        <div class="holder">
-          <div class="popup__half">
-            <div class="i-popup-monitor">
-
+    <div class="popup metering-popup" id="metering-popup">
+      <div class="holder">
+        <div class="popup__half">
+          <div class="i-monitor">
+            <div class="i-monitor__content">
+              <i class="i-monitor__ico"></i>
+              <p class="i-monitor__text">Вызов замерщика</p>
             </div>
-          </div><div class="popup__half">
+          </div>
+        </div><div class="popup__half">
+          <div class="form">
             <p class="form__title">Вызов замерщика</p>
             <form id="sizeform" method="post" action="/send/">
               <input type="text" class="input valid" placeholder="Ваше имя" name="s-name" id="s-name"><label for="s-name">&nbsp;</label>
@@ -457,8 +467,12 @@
               <input type="email" class="input valid" placeholder="Электронная почта" name="s-email" id="s-email"><label for="s-email">&nbsp;</label>
               <p class="input-error">Введите корректный email !</p>
               <textarea class="input" placeholder="Укажите удобное для вас время и желаемую дату" name="comment"></textarea>
-              <a href="#" class="btn btn-orange">Отправить</a>
+              <a href="#" class="btn btn-orange form-done">Отправить</a>
             </form>
+          </div>
+          <div class="form-thx">
+            <p>Спасибо за проявленный интерес к нашей компании. Мы свяжемся с вами в течение 24 часов.</p>
+            <a href="#" class="btn btn-orange form-reset">Спасибо!</a>
           </div>
         </div>
       </div>
