@@ -60,8 +60,21 @@
 
           scene1.on("enter", function (event) {
             scene1.removeClassToggle();
-         });
+          });
+          var scene2 = new ScrollMagic.Scene({triggerElement: "#countertopsCell"})
+          .setClassToggle("#countertopsCell", "activated")
+          .addTo(controller);
 
+          scene2.on("enter", function (event) {
+            scene2.removeClassToggle();
+         });
+         var scene3 = new ScrollMagic.Scene({triggerElement: "#fittingsCell"})
+          .setClassToggle("#fittingsCell", "activated")
+          .addTo(controller);
+
+          scene3.on("enter", function (event) {
+            scene3.removeClassToggle();
+         });
           $(document).scroll(function(){
             if(controller.scrollPos() > 0) {
               $('body').addClass('scrolling');
@@ -134,30 +147,6 @@
           $(".scheme .i-monitor").removeClass("i-monitor_active");
         }
         return false;
-      });
-      $(".scheme .i-content li a").hover(function(){
-        
-        if($(this).data("img"))
-        {
-          $(".i-monitor__img").attr("src", $(this).data("img")).stop(true, true).animate({'opacity':'1'},
-          {
-            duration: 50,
-            complete: function(){
-              $(".scheme .i-monitor").addClass("i-monitor_active");
-            }
-          });
-        }
-      },
-      function(){
-        $(".i-monitor__img").stop(true, true).animate({'opacity':'0'},
-        {
-          duration: 50,
-          complete: function(){
-            if($(".scheme .switcher__control button.active").data("switcher-btn") != "scheme-cont01") {
-              $(".scheme .i-monitor").removeClass("i-monitor_active");
-            }
-          }
-        });
       });
       });
     </script>
@@ -306,12 +295,12 @@
           <p class="h1 screen__title">Столешницы</p>
           <p class="screen__text">Наши столешницы отличаются высоким качеством, элегантностью и надежностью. Широкий ассортимент столешниц любого декора и необходимой толщины — 12, 16, 25, 40 или 50 мм позволит создать и подчеркнуть свой собственный стиль кухни.</p>
         </div>
-        <div class="screen__illustration">
+        <div class="screen__illustration" id="countertopsCell">
           <div class="screen__illustration-row">
             <div class="screen__illustration-cell">
-              <div class="i-countertops">
-                <div class="i-countertops__1"><img src="f/i/countertops-1.png" alt=""></div>
-                <div class="i-countertops__2"><img src="f/i/countertops-2.png" alt=""></div>
+              <div class="i-countertops i-anim">
+                <div class="i-anim__item animated"><img src="f/i/countertops-1.png" alt="" class="animated"></div>
+                <div class="i-anim__item animated" style="left: 124px; top: 345px;"><img src="f/i/countertops-2.png" alt="" class="animated"></div>
                 <span class="screen__link animated" style="top: 320px; left: 405px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops01"></a></span>
                 <span class="screen__link animated" style="top: 355px; left: 185px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops02"></a></span>
                 <span class="screen__link animated" style="top: 180px; left: 75px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops03"></a></span>
@@ -375,12 +364,13 @@
             <button type="button" class="btn btn-default btn_unbg" data-switcher-btn="fittings-cont02">Верхняя</button>
           </div></div>
         </div>
-        <div class="switcher__holder">
-          <div class="screen__illustration switcher__content switcher__content_active"  id="fittings-cont01">
+        <div class="switcher__holder" id="fittingsCell">
+          <div class="screen__illustration switcher__content switcher__content_active" id="fittings-cont01">
             <div class="screen__illustration-row">
               <div class="screen__illustration-cell">
-                <div class="i-fittings">
-                  <div class="i-fittings__1"><img src="f/i/fittings-1.png" alt=""></div>
+                <div class="i-anim i-fittings">
+                	<div class="i-anim__item animated"><img src="f/i/fittings-3.png" alt="" class="animated"></div>
+                  <div class="i-anim__item animated"><img src="f/i/fittings-1.png" alt="" class="animated"></div>
                   <span class="screen__link animated" style="top: 480px; left: 170px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings01"></a></span>
                   <span class="screen__link animated" style="top: 205px; left: 255px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings02"></a></span>
                   <span class="screen__link animated" style="top: 360px; left: 285px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings03"></a></span>
