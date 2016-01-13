@@ -135,9 +135,10 @@ $(function(){
       $(this).hide();
     });
     th.closest(".scheme-slide").find(".form-thx").animate({opacity: 0}, 100, function(){
-      th.closest(".scheme-slide").find(".form").css("display", "block").animate({opacity: 1}, 300);
+      
       $(this).hide();
     });
+    th.closest(".screen__illustration-cell").find(".form").css("display", "block").animate({opacity: 1}, 300);
     $(".scheme-slide").removeClass("scheme-slide_form");
     $(".scheme .i-monitor__content").removeClass("i-monitor__content_active");
     if($(".scheme .switcher__control button.active").data("switcher-btn") != "scheme-cont01") {
@@ -145,10 +146,14 @@ $(function(){
       $(".scheme .i-monitor").removeClass("i-monitor_active");
     }
     $(".form-thx").hide();
+    $(".btn-file").removeClass("btn-file_active").find("span").text("Прикрепить файл");
     $.fancybox.close();
     return false;
   });
   $(".form-done").click(function(){
+    if($(this).hasClass("form-done_disable")) {
+      return false;
+    }
     $(".i-monitor__content").addClass("i-monitor__content_done");
     $('.i-monitor__text').animate({opacity: 0}, 100);
     var dText = "Заявка успешно отправлена";

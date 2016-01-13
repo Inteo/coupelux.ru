@@ -46,8 +46,16 @@
               temp.removeClassToggle();
             });
           });
-          
+          var top = 0;
           $(document).scroll(function(){
+            var cur_top = $(window).scrollTop();
+            if(top < cur_top)
+            {
+              $('.progress').each(function(){
+                $(this).find(".progress__line").height($(window).scrollTop() - $(this).offset().top + 500);
+              })
+              top = $(window).scrollTop();
+            }
             if(controller.scrollPos() > 0) {
               $('body').addClass('scrolling');
             }
@@ -64,6 +72,13 @@
           next: ".safe-slider__nav_next",
           prev: ".safe-slider__nav_prev"
         });
+        $(".btn-file").click(function(){
+          $(".scheme .i-monitor").addClass("i-monitor_active");
+          $(".scheme .i-monitor__content").addClass("i-monitor__content_active");
+          $(this).next(".btn").removeClass("form-done_disable");
+          $(this).addClass("btn-file_active").find("span").text("Проект кухни.3ds")
+          return false;
+        })
       });
     </script>
   </head>
@@ -163,93 +178,245 @@
           <p class="h1 screen__title">Работа с нами  ―  это возможности</p>
           <p class="screen__text">В течение длительного времени мы на постоянной основе сотрудничаем с проверенными надежными поставщиками качественных материалов, комплектующих и фурнитуры, которые мы применяем в нашем производстве.</p>
         </div>
-        <div class="screen__illustration scene" id="facadesCell1">
-          <div class="screen__illustration-row">
-            <div class="screen__illustration-cell">
-              <div class="i-facades i-facades_small">
-                <div class="i-facades__1 animated"><img src="f/i/facades/1.png" alt="" class="animated"></div>
-                <div class="i-facades__2 animated"><img src="f/i/facades/2.png" alt="" class="animated"></div>
-                <div class="i-facades__3 animated"><img src="f/i/facades/3.png" alt="" class="animated"></div>
+        <div class="progress">
+          <span class="progress__line"></span>
+          <div class="screen__illustration scene" id="facadesCell1">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-facades i-facades_small">
+                  <div class="i-facades__1 animated"><img src="f/i/facades/1.png" alt="" class="animated"></div>
+                  <div class="i-facades__2 animated"><img src="f/i/facades/2.png" alt="" class="animated"></div>
+                  <div class="i-facades__3 animated"><img src="f/i/facades/3.png" alt="" class="animated"></div>
+                </div>
+              </div>
+              <div class="screen__illustration-cell screen__illustration-cell_content">
+                <div class="i-content">
+                  <p class="i-content__link i-content__link_big">Надежные материалы</p>
+                  <p class="i-content__text">В течение длительного времени мы на постоянной основе сотрудничаем с проверенными надежными поставщиками качественных материалов.</p>  
+                  <ul>
+                    <li>Массив</li>
+                    <li>МДФ, ДСП, шпон</li>
+                    <li>Стекло</li>
+                    <li>Зеркало </li>
+                  </ul>             
+                </div>
               </div>
             </div>
-            <div class="screen__illustration-cell screen__illustration-cell_content">
-              <div class="i-content">
-                <p class="i-content__link i-content__link_big">Надежные материалы</p>
-                <p class="i-content__text">В течение длительного времени мы на постоянной основе сотрудничаем с проверенными надежными поставщиками качественных материалов.</p>  
-                <ul>
-                  <li>Массив</li>
-                  <li>МДФ, ДСП, шпон</li>
-                  <li>Стекло</li>
-                  <li>Зеркало </li>
-                </ul>             
+          </div>
+          <div class="screen__illustration scene" id="facadesCell2">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-facades i-facades_small">
+                  <div class="i-facades__1 animated"><img src="f/i/facades/4.png" alt="" class="animated"></div>
+                  <div class="i-facades__2 animated"><img src="f/i/facades/5.png" alt="" class="animated"></div>
+                  <div class="i-facades__3 animated"><img src="f/i/facades/6.png" alt="" class="animated"></div>
+                </div>
+              </div>
+              <div class="screen__illustration-cell screen__illustration-cell_content">
+                <div class="i-content">
+                  <p class="i-content__link i-content__link_big">Любые формы</p>
+                  <p class="i-content__text">Раскрой древесины и древесных плит производится на современных высокоточных станках, что позволяет выполнять самые сложные формы.</p>  
+                  <ul>
+                    <li>Прямые</li>
+                    <li>Изогнутые</li>
+                    <li>Округлые</li>
+                  </ul>             
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="screen__illustration scene" id="facadesCell3">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-facades i-facades_small">
+                  <div class="i-facades__1 animated"><img src="f/i/facades/7.png" alt="" class="animated"></div>
+                  <div class="i-facades__2 animated"><img src="f/i/facades/8.png" alt="" class="animated"></div>
+                  <div class="i-facades__3 animated"><img src="f/i/facades/9.png" alt="" class="animated"></div>
+                </div>
+              </div>
+              <div class="screen__illustration-cell screen__illustration-cell_content">
+                <div class="i-content">
+                  <p class="i-content__link i-content__link_big">Декорирование</p>
+                  <p class="i-content__text">На все фасады и элементы конструкций возможно нанесение любых декоративных элементов.</p>  
+                  <ul>
+                    <li>Фотопечать</li>
+                    <li>Витражи</li>
+                    <li>Пескоструйная обработка</li>
+                    <li>Сатинирование</li>
+                    <li>Тонирование</li>
+                  </ul>             
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="screen__illustration scene" id="facadesCell4">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-facades i-facades_small">
+                  <div class="i-facades__1 animated"><img src="f/i/facades/10.png" alt="" class="animated"></div>
+                  <div class="i-facades__2 animated"><img src="f/i/facades/11.png" alt="" class="animated"></div>
+                </div>
+              </div>
+              <div class="screen__illustration-cell screen__illustration-cell_content">
+                <div class="i-content">
+                  <p class="i-content__link i-content__link_big">Качественная фурнитура</p>
+                  <p class="i-content__text">В нашей продукции мы применяем фурнитуру ведущих зарубежных и российских производителей, таких как Blum, Innotech, Brass.</p>  
+                  <ul>
+                    <li>Петли с доводчиком</li>
+                    <li>Выдвижные ящики</li>
+                    <li>Механизмы поджима</li>
+                    <li>Сушки</li>
+                  </ul>             
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="screen__illustration scene" id="facadesCell2">
-          <div class="screen__illustration-row">
-            <div class="screen__illustration-cell">
-              <div class="i-facades i-facades_small">
-                <div class="i-facades__1 animated"><img src="f/i/facades/4.png" alt="" class="animated"></div>
-                <div class="i-facades__2 animated"><img src="f/i/facades/5.png" alt="" class="animated"></div>
-                <div class="i-facades__3 animated"><img src="f/i/facades/6.png" alt="" class="animated"></div>
+      </div>
+    </section>
+    <section class="screen screen_inner screen_default simple">
+      <div class="screen__content">
+        <div class="screen__info">
+          <p class="h1 screen__title">Работа с нами ― это просто</p>
+          <p class="screen__text">Простая и удобная схема работы позволяет в кратчайшие сроки эффективно выполнять заказы любой сложности и получать гарантированный результат.</p>
+        </div>
+        <div class="progress">
+          <span class="progress__line"></span>
+          <div class="screen__illustration scene" id="simpleCell1">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-numbers">
+                  <div class="i-numbers__item animated"><img src="f/i/numbers/1.png" alt="" class="animated"></div>
+                </div>
+              </div>
+              <div class="screen__illustration-cell ">
+                <div class="i-content">
+                  <p class="i-content__link i-content__link_big">Расчет проекта</p> 
+                  <ul>
+                    <li>Вы отправляете дизайн-проект нам на предварительный расчет</li>
+                    <li>Мы оцениваем проект, связываемся с вами и уточняем детали</li>
+                  </ul>             
+                </div>
+                <a href="#" class="btn btn-transpar btn-transpar_orange"><i class="icon-calc"></i>Отправить проект</a>
+              </div>
+              <div class="screen__illustration-cell ">
+                <div class="simple-detail">
+                  <span class="simple-detail__sym icon-24"></span>
+                  <p class="simple-detail__text">Отвечаем в течение<br> суток</p>
+                </div>
               </div>
             </div>
-            <div class="screen__illustration-cell screen__illustration-cell_content">
-              <div class="i-content">
-                <p class="i-content__link i-content__link_big">Любые формы</p>
-                <p class="i-content__text">Раскрой древесины и древесных плит производится на современных высокоточных станках, что позволяет выполнять самые сложные формы.</p>  
-                <ul>
-                  <li>Прямые</li>
-                  <li>Изогнутые</li>
-                  <li>Округлые</li>
-                </ul>             
+          </div>
+          <div class="screen__illustration scene" id="simpleCell2">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-numbers">
+                  <div class="i-numbers__item animated"><img src="f/i/numbers/2.png" alt="" class="animated"></div>
+                </div>
+              </div>
+              <div class="screen__illustration-cell ">
+                <div class="i-content">
+                  <p class="i-content__link i-content__link_big">Согласование и оплата</p> 
+                  <ul>
+                    <li>Утверждение сметы материалов и окончательный расчет</li>
+                    <li>Заключение договора и оплата (возможна беспроцентная рассрочка платежа)</li>
+                  </ul>             
+                </div>
+              </div>
+              <div class="screen__illustration-cell ">
+                <div class="simple-detail">
+                  <span class="simple-detail__sym icon-percent"></span>
+                  <p class="simple-detail__text">Скидки для вас и ваших клиентов</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="screen__illustration scene" id="simpleCell3">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-numbers">
+                  <div class="i-numbers__item animated"><img src="f/i/numbers/3.png" alt="" class="animated"></div>
+                </div>
+              </div>
+              <div class="screen__illustration-cell ">
+                <div class="i-content">
+                  <p class="i-content__link i-content__link_big">Производство мебели</p> 
+                  <ul>
+                    <li>Отправка заказа на производство, расчет технологами</li>
+                    <li>Изготовление мебели</li>
+                  </ul>             
+                </div>
+              </div>
+              <div class="screen__illustration-cell ">
+                <div class="simple-detail">
+                  <span class="simple-detail__sym icon-time"></span>
+                  <p class="simple-detail__text">От 15 дней с момента заказа</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="screen__illustration scene" id="simpleCell4">
+            <div class="screen__illustration-row">
+              <div class="screen__illustration-cell">
+                <div class="i-numbers">
+                  <div class="i-numbers__item animated"><img src="f/i/numbers/4.png" alt="" class="animated"></div>
+                </div>
+              </div>
+              <div class="screen__illustration-cell ">
+                <div class="i-content">
+                  <p class="i-content__link i-content__link_big">Сборка и установка</p> 
+                  <ul>
+                    <li>Назначение даты доставки по предварительному звонку</li>
+                    <li>Сборка и установка мебели осуществляется опытными сборщиками</li>
+                  </ul>             
+                </div>
+              </div>
+              <div class="screen__illustration-cell ">
+                <div class="simple-detail">
+                  <span class="simple-detail__sym icon-logist"></span>
+                  <p class="simple-detail__text">Отработанная логистика</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="screen__illustration scene" id="facadesCell3">
-          <div class="screen__illustration-row">
-            <div class="screen__illustration-cell">
-              <div class="i-facades i-facades_small">
-                <div class="i-facades__1 animated"><img src="f/i/facades/7.png" alt="" class="animated"></div>
-                <div class="i-facades__2 animated"><img src="f/i/facades/8.png" alt="" class="animated"></div>
-                <div class="i-facades__3 animated"><img src="f/i/facades/9.png" alt="" class="animated"></div>
-              </div>
-            </div>
-            <div class="screen__illustration-cell screen__illustration-cell_content">
-              <div class="i-content">
-                <p class="i-content__link i-content__link_big">Декорирование</p>
-                <p class="i-content__text">На все фасады и элементы конструкций возможно нанесение любых декоративных элементов.</p>  
-                <ul>
-                  <li>Фотопечать</li>
-                  <li>Витражи</li>
-                  <li>Пескоструйная обработка</li>
-                  <li>Сатинирование</li>
-                  <li>Тонирование</li>
-                </ul>             
-              </div>
-            </div>
-          </div>
+      </div>
+    </section>
+    <section class="screen screen_inner screen_scheme scheme">
+      <div class="screen__content">
+        <div class="screen__info">
+          <p class="h1 screen__title">Заявка на расчет проекта</p>
+          <p class="screen__text">Отправьте ваш дизайн-проект на предварительный расчет и мы свяжемся с вами в течении суток. Или просто позвоните нам 
+          <span>+7 (4852) 33-46-06.</span></p>
         </div>
-        <div class="screen__illustration scene" id="facadesCell4">
+        <div class="screen__illustration">
           <div class="screen__illustration-row">
-            <div class="screen__illustration-cell">
-              <div class="i-facades i-facades_small">
-                <div class="i-facades__1 animated"><img src="f/i/facades/10.png" alt="" class="animated"></div>
-                <div class="i-facades__2 animated"><img src="f/i/facades/11.png" alt="" class="animated"></div>
+            <div class="screen__illustration-cell" style="vertical-align: top">
+              <div class="i-monitor">
+                <p class="i-monitor__design">Проект не загружен</p>
+                <div class="i-monitor__content">
+                  <i class="i-monitor__ico i-monitor__ico_design"></i>
+                  <p class="i-monitor__text">Проект успешно загружен</p>
+                </div>
               </div>
             </div>
             <div class="screen__illustration-cell screen__illustration-cell_content">
-              <div class="i-content">
-                <p class="i-content__link i-content__link_big">Качественная фурнитура</p>
-                <p class="i-content__text">В нашей продукции мы применяем фурнитуру ведущих зарубежных и российских производителей, таких как Blum, Innotech, Brass.</p>  
-                <ul>
-                  <li>Петли с доводчиком</li>
-                  <li>Выдвижные ящики</li>
-                  <li>Механизмы поджима</li>
-                  <li>Сушки</li>
-                </ul>             
+              <div class="form request-form">
+                <form id="requestform" method="post" action="/send/">
+                  <input type="text" class="input valid" placeholder="Ваше имя" name="r-name" id="r-name"><label for="r-name">&nbsp;</label>
+                  <p class="input-error">Введите корректное имя !</p>
+                  <input type="tel" class="input valid" placeholder="Телефон" name="r-phone" id="r-phone"><label for="r-phone">&nbsp;</label>
+                  <p class="input-error">Введите корректный телефон !</p>
+                  <input type="email" class="input valid" placeholder="Электронная почта" name="r-email" id="r-email"><label for="r-email">&nbsp;</label>
+                  <p class="input-error">Введите корректный email !</p>
+                  <textarea class="input" placeholder="Комментарии к проекту" name="comment"></textarea>
+                  <a href="#" class="btn btn-gray btn-file"><i class="icon-file"></i><span>Прикрепить файл</span></a>
+                  <a href="#" class="btn btn-orange form-done_disable form-done">Отправить заявку</a>
+                </form> 
+              </div>
+              <div class="form-thx" style="padding-top: 0">
+                <p>Спасибо за проявленный интерес к нашей компании. Мы свяжемся с вами в течение 24 часов.</p>
+                <a href="#" class="btn btn-orange form-reset">Спасибо!</a>
               </div>
             </div>
           </div>
