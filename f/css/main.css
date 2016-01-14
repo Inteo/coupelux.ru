@@ -2305,14 +2305,14 @@ a:hover .icon-consult {
   bottom: 100px;
 }
 .sections-slider__item img {
-  bottom: 150px;
+  bottom: 155px;
   position: absolute;
   left: 0;
   right: 0;
   margin: 0 auto;
 }
 .sections-slider_full .sections-slider__item img {
-  bottom: 100px;
+  bottom: 105px;
 }
 .sections-slider__item img,
 .sections-slider__item .sections-slider__link {
