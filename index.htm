@@ -53,34 +53,52 @@
           }
         });
 
-        var $sitems;
-        $(".sections-slider__holder").carouFredSel({
+        var carousel = $(".sections-slider__holder");
+        carousel.carouFredSel({
           align: false,
           responsive : true, 
           transition: true, 
           width: "100%",
           height: 800, 
+          synchronise: ['.sections-slider__control ul', false],
           auto: false,  
           next: ".sections-slider__nav_next",
           prev: ".sections-slider__nav_prev",
           onCreate: function() {
-          	$sitems = $(".sections-slider__item");
+            $(".sections-slider__item").each(function(i){
+              $(this).attr("rel", i);
+            });
+            $(".sections-slider__control ul li a").each(function(i){
+              $(this).attr("rel", i);
+            });
           },
           scroll: {
             timeoutDuration: 5000,
             fx: "crossfade",
             onBefore: function(data){
-            	for(var i=0;i<$sitems.length;i++){  
-								if($sitems[i] === data.items.visible.get(0)) {
-        					$(".screen__info").removeClass("screen__info_active");
-        					$(".screen__info").eq(i+1).addClass("screen__info_active");
-        				}
-						 	}
+              $(".screen__info").removeClass("screen__info_active");
+              $(".screen__info").eq(parseInt(data.items.visible.attr("rel"))).addClass("screen__info_active");
+              $(".sections-slider__item").removeClass("sections-slider__item_active");
+              data.items.visible.addClass("sections-slider__item_active");
             }
           },
           items: {
             height: 800
           }
+        });
+        $(".sections-slider__control ul li a").click(function(){          
+          carousel.trigger('slideTo', $(".sections-slider__item[rel='"+$(this).attr("rel")+"']"));
+          return false;
+        });
+        $(".sections-slider__control ul").carouFredSel({
+          align: false, 
+          transition: true, 
+          items: 10,
+          width: "9999",      
+          scroll: {
+            items: 1
+          },
+          auto: false
         });
         $(window).scroll(function(){
           $('.preface-slider__pager').css('marginTop',$(window).scrollTop()-120);
@@ -198,30 +216,78 @@
         <div class="preface-slider__pager"></div>
       </div>
     </section>
-    <section class="screen sections-slider">
+    <section class="sections-slider screen">
       <div class="screen__back">
-        <div class="screen__back-holder" style="position:relative">
+        <div class="screen__back-holder emerge" data-effect="slide" data-spin="true" id="topslide" data-up="30px" style="position:relative">
           <div class="sections-slider__holder">
-            <div class="sections-slider__item">
-              <img src="f/i/sections/1.png" alt="" width="981" height="504">
-              <span class="sections-slider__link sections-slider__link_1" style="top: 130px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_2" style="top: 105px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_3" style="top: 525px; left: -45px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_4" style="top: 270px; left: 300px;"><a href="#"><b>Любые материалы</b></a></span>
+            <div class="sections-slider__item sections-slider__item_active">
+              <img src="f/i/sections/1.png" alt="" width="954" height="511">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 320px; left: -380px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 570px; left: 30px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 310px; left: 245px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 440px;"><a href="#"><b>Любые материалы</b></a></span>
             </div>
             <div class="sections-slider__item">
-              <img src="f/i/sections/2.png" alt="" width="981" height="504">
-              <span class="sections-slider__link sections-slider__link_1" style="top: 130px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_2" style="top: 105px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_3" style="top: 525px; left: 5px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_4" style="top: 270px; left: -340px;"><a href="#"><b>Любые материалы</b></a></span>
+              <img src="f/i/sections/2.png" alt="" width="954" height="511">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 210px; left: -405px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
             </div>
             <div class="sections-slider__item">
-              <img src="f/i/sections/2.png" alt="" width="981" height="504">
-              <span class="sections-slider__link sections-slider__link_1" style="top: 130px; left: 210px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_2" style="top: 105px; left: -250px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_3" style="top: 525px; left: 5px;"><a href="#"><b>Любые материалы</b></a></span>
-              <span class="sections-slider__link sections-slider__link_4" style="top: 270px; left: -340px;"><a href="#"><b>Любые материалы</b></a></span>
+              <img src="f/i/sections/3.png" alt="" width="954" height="604">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
+            </div>
+            <div class="sections-slider__item">
+              <img src="f/i/sections/4.png" alt="" width="954" height="511">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 210px; left: -405px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
+            </div>
+            <div class="sections-slider__item">
+              <img src="f/i/sections/5.png" alt="" width="954" height="522">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 210px; left: -405px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
+            </div>
+            <div class="sections-slider__item">
+              <img src="f/i/sections/6.png" alt="" width="954" height="511">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 210px; left: -405px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
+            </div>
+            <div class="sections-slider__item">
+              <img src="f/i/sections/7.png" alt="" width="954" height="530">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 210px; left: -405px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
+            </div>
+            <div class="sections-slider__item">
+              <img src="f/i/sections/8.png" alt="" width="954" height="512">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 210px; left: -405px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
+            </div>
+            <div class="sections-slider__item">
+              <img src="f/i/sections/9.png" alt="" width="954" height="519">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 210px; left: -405px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
+            </div>
+            <div class="sections-slider__item">
+              <img src="f/i/sections/10.png" alt="" width="954" height="511">
+              <span class="sections-slider__link sections-slider__link_1" style="top: 210px; left: -405px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_2" style="top: 520px; left: 232px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_3" style="top: 220px; left: 235px;"><a href="#"><b>Любые материалы</b></a></span>
+              <span class="sections-slider__link sections-slider__link_4" style="top: 330px; left: 350px;"><a href="#"><b>Любые материалы</b></a></span>
             </div>
           </div>
           <a href="#" class="sections-slider__nav sections-slider__nav_next"></a>
@@ -229,18 +295,67 @@
         </div>
       </div>
       <div class="screen__content">
+        <div class="sections-slider__control emerge" data-effect="slide" data-spin="true" id="topslide" data-up="30px">
+            <ul>
+              <li><a href="#">Шкафы-купе</a>
+              </li><li><a href="#">Кухни</a>
+              </li><li><a href="#">Гостиные</a>
+              </li><li><a href="#">Гардеробные</a>
+              </li><li><a href="#">Прихожие</a>
+              </li><li><a href="#">Спальни</a>
+              </li><li><a href="#">Детские</a>
+              </li><li><a href="#">Кабинеты</a>
+              </li><li><a href="#">Библиотеки</a>
+              </li><li><a href="#">Межкомнатные перегородки</a></li>
+            </ul>
+          </div>
         <div class="screen__info screen__info_active">
-          <p class="h1 screen__title">Шкафы-купе</p>
+          <p class="h1 screen__title emerge" data-effect="relax" data-await="topslide" data-up="30px">Шкафы-купе</p>
+          <p class="screen__text emerge" data-hold="300" data-effect="relax" data-await="topslide" data-up="30px">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link emerge" data-hold="300" data-effect="relax" data-await="topslide" data-up="30px">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <p class="h1 screen__title">Кухни</p>
           <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
           <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
         </div>
         <div class="screen__info">
-          <p class="h1 screen__title">Шкафы-купе2</p>
+          <p class="h1 screen__title">Гостиные</p>
           <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
           <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
         </div>
         <div class="screen__info">
-          <p class="h1 screen__title">Шкафы-купе3</p>
+          <p class="h1 screen__title">Гардеробные</p>
+          <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <p class="h1 screen__title">Прихожие</p>
+          <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <p class="h1 screen__title">Спальни</p>
+          <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <p class="h1 screen__title">Детские</p>
+          <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <p class="h1 screen__title">Кабинеты</p>
+          <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <p class="h1 screen__title">Библиотеки</p>
+          <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
+          <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
+        </div>
+        <div class="screen__info">
+          <p class="h1 screen__title">Межкомнатные перегородки</p>
           <p class="screen__text">Вдохновлённые идеями лучших дизайнеров мебели, мы создали коллекции, великолепно зарекомендовавшие себя в повседневной жизни</p>
           <a href="#" class="anim-link">Посмотреть<i></i><i></i><i></i></a>
         </div>

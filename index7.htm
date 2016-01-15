@@ -54,7 +54,7 @@
           .setPin("section#start")
           .addTo(controller);
 
-          var scenes = [];
+         var scenes = [];
           $(".scene").each(function(){
             var temp = new ScrollMagic.Scene({triggerElement: "#" + $(this).attr("id")})
               .setClassToggle("#" + $(this).attr("id"), "activated").addTo(controller);
@@ -165,7 +165,7 @@
       </div>
       <div class="screen__content gallery-cover">
         <div class="screen__info">
-          <h1 class="screen__title emerge" data-effect="relax" data-await="topslide1" data-up="30px">Кухни «Модерн»</h1>
+          <h1 class="screen__title emerge" data-effect="relax" data-await="topslide1" data-up="30px">Шкафы-купе</h1>
           <p class="screen__text emerge" data-hold="300" data-effect="relax" data-await="topslide1" data-up="30px">Вдохновлённые идеями лучших дизайнеров мебели, мы создаем кухни, великолепно зарекомендовавшие себя в повседневной жизни</p>
           <div class="scroll-cursor emerge" data-hold="300" data-effect="relax" data-await="topslide1" data-up="30px">
             <div class="scroll-cursor__mouse">
@@ -196,35 +196,34 @@
         </div>
       </div>
   <div class="gallery-control"><div class="btn-group" role="group">
-  <button type="button" class="btn btn-default active">Все кухни</button>
+  <button type="button" class="btn btn-default active">Все шкафы</button>
   <button type="button" class="btn btn-default">Классика</button>
   <button type="button" class="btn btn-default">Модерн</button>
 </div></div>
-
-    </section>
+    </section>    
     <section class="screen screen_inner screen_default">
       <div class="screen__content">
         <div class="screen__info">
-          <p class="h1 screen__title">Фасады</p>
-          <p class="screen__text">Разнообразие цветов, фактур и фрезеровок кухонных фасадов открывает широкий простор для дизайнерской фантазии и позволяет создать кухню на любой вкус от модерна до классики, тем самым удовлетворяя потребности клиентов как с современными взглядами на жизнь, так и с более консервативными.</p>
+          <p class="h1 screen__title">Системы раздвижения</p>
+          <p class="screen__text">Разнообразие цветов, фактур и фрезеровок открывает широкий простор для дизайнерской фантазии и позволяет создать гардероб на любой вкус от модерна до классики.</p>
         </div>
-        <div class="screen__illustration scene" id="facadeCell">
+        <div class="screen__illustration scene" id="facadeCell1">
           <div class="screen__illustration-row">
             <div class="screen__illustration-cell">
-              <div class="i-facades">
-                <div class="i-facades__1 animated"><img src="f/i/facade-1.png" alt="" class="animated"></div>
-                <div class="i-facades__2 animated"><img src="f/i/facade-2.png" alt="" class="animated"></div>
-                <div class="i-facades__3 animated"><img src="f/i/facade-3.png" alt="" class="animated"></div>
-                <span class="screen__link animated" style="top: 360px; left: 155px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades01"></a></span>
-                <span class="screen__link animated" style="top: 145px; left: 50px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades02"></a></span>
-                <span class="screen__link animated" style="top: 420px; left: 405px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades03"></a></span>
-                <span class="screen__link animated" style="top: 130px; left: 320px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades04"></a></span>
+              <div class="i-anim i-anim_absolute">
+                <div class="i-anim__item animated"><img src="f/i/parts/10.png" alt="" class="animated"></div>
+                <div class="i-anim__item animated" style="top: 215px; right: 370px;"><img src="f/i/parts/11.png" alt="" class="animated"></div>
+                <div class="i-anim__item animated" style="top: 280px; left: 50px;"><img src="f/i/parts/12.png" alt="" class="animated"></div>
+                <span class="screen__link animated" style="top: 410px; left: 30px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades02"></a></span>
+                <span class="screen__link animated" style="top: 490px; left: 240px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades01"></a></span>
+                <span class="screen__link animated" style="top: 290px; left: 60px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades03"></a></span>
+                <span class="screen__link animated" style="top: 320px; left: 440px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades04"></a></span>
               </div>
             </div>
             <div class="screen__illustration-cell screen__illustration-cell_content">
               <ul class="panel-group i-content" id="facadesLinks" role="tablist" aria-multiselectable="false">
                 <li class="panel panel-default">
-                  <div role="tab" id="facadesHeading01"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades01" aria-controls="facades01" data-parent="#facadesLinks" aria-expanded="false" data-linked-text="facades01">Надежный материал</a></div>
+                  <div role="tab" id="facadesHeading01"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades01" aria-controls="facades01" data-parent="#facadesLinks" aria-expanded="false" data-linked-text="facades01">Производители</a></div>
                   <div id="facades01" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading01">
                     <ul class="panel-body">
                       <li>Массив</li>
@@ -236,7 +235,7 @@
                   </div>
                 </li>
                 <li class="panel panel-default">
-                  <div role="tab" id="facadesHeading02"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades02" aria-controls="facades02" data-parent="#facadesLinks" aria-expanded="false" data-linked-text="facades02">Любая форма</a></div>
+                  <div role="tab" id="facadesHeading02"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades02" aria-controls="facades02" data-parent="#facadesLinks" aria-expanded="false" data-linked-text="facades02">Декор</a></div>
                   <div id="facades02" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading02">
                     <ul class="panel-body">
                       <li>Массив</li>
@@ -248,7 +247,7 @@
                   </div>
                 </li>
                 <li class="panel panel-default">
-                  <div role="tab" id="facadesHeading03"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades03" aria-controls="facades03" data-parent="#facadesLinks" aria-expanded="false" data-linked-text="facades03">Декоративные элементы</a></div>
+                  <div role="tab" id="facadesHeading03"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades03" aria-controls="facades03" data-parent="#facadesLinks" aria-expanded="false" data-linked-text="facades03">Цвета</a></div>
                   <div id="facades03" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading03">
                     <ul class="panel-body">
                       <li>Массив</li>
@@ -260,7 +259,7 @@
                   </div>
                 </li>
                 <li class="panel panel-default">
-                  <div role="tab" id="facadesHeading04"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades04" aria-controls="facades04" data-parent="#facadesLinks" aria-expanded="false" data-linked-text="facades04">Надежный материал</a></div>
+                  <div role="tab" id="facadesHeading04"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades04" aria-controls="facades04" data-parent="#facadesLinks" aria-expanded="false" data-linked-text="facades04">Виды систем</a></div>
                   <div id="facades04" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading04">
                     <ul class="panel-body">
                       <li>Массив</li>
@@ -280,59 +279,56 @@
     <section class="screen screen_inner screen_gray">
       <div class="screen__content">
         <div class="screen__info">
-          <p class="h1 screen__title">Столешницы</p>
-          <p class="screen__text">Наши столешницы отличаются высоким качеством, элегантностью и надежностью. Широкий ассортимент столешниц любого декора и необходимой толщины — 12, 16, 25, 40 или 50 мм позволит создать и подчеркнуть свой собственный стиль кухни.</p>
+          <p class="h1 screen__title">Корпус</p>
+          <p class="screen__text">Разнообразие цветов, фактур и фрезеровок открывает широкий простор для дизайнерской фантазии и позволяет создать гардероб на любой вкус от модерна до классики.</p>
         </div>
-        <div class="screen__illustration scene" id="countertopsCell">
+        <div class="screen__illustration scene" id="facadeCel3">
           <div class="screen__illustration-row">
             <div class="screen__illustration-cell">
-              <div class="i-countertops i-anim">
-                <div class="i-anim__item i-countertops__item animated"><img src="f/i/countertops-1.png" alt="" class="animated"></div>
-                <div class="i-anim__item i-countertops__item animated" style="left: 124px; top: 345px;"><img src="f/i/countertops-2.png" alt="" class="animated"></div>
-                <span class="screen__link animated" style="top: 320px; left: 405px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops01"></a></span>
-                <span class="screen__link animated" style="top: 355px; left: 185px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops02"></a></span>
-                <span class="screen__link animated" style="top: 180px; left: 75px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops03"></a></span>
-                <span class="screen__link animated" style="top: 440px; left: 330px;"><i></i><i></i><i></i><a href="#" data-linked-plus="countertops04"></a></span>
+              <div class="i-anim i-anim_absolute">
+                <div class="i-anim__item animated"><img src="f/i/parts/13.png" alt="" class="animated"></div>
+                <div class="i-anim__item animated" style="top: 155px; right: 255px;"><img src="f/i/parts/14.png" alt="" class="animated"></div>
+                <div class="i-anim__item animated" style="top: 210px; right: 360px;"><img src="f/i/parts/15.png" alt="" class="animated"></div>
+                <span class="screen__link animated" style="top: 370px; left: 190px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades05"></a></span>
+                <span class="screen__link animated" style="top: 100px; left: 280px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades06"></a></span>
+                <span class="screen__link animated" style="top: 370px; left: 35px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades07"></a></span>
               </div>
             </div>
             <div class="screen__illustration-cell screen__illustration-cell_content">
-              <ul class="panel-group i-content" id="countertopsLinks" role="tablist" aria-multiselectable="false">
+              <ul class="panel-group i-content" id="facadesLinks2" role="tablist" aria-multiselectable="false">
                 <li class="panel panel-default">
-                  <div role="tab" id="countertopsHeading01"><a class="i-content__link" role="button" data-toggle="collapse" href="#countertops01" aria-controls="countertops01" data-parent="#countertopsLinks" aria-expanded="false" data-linked-text="countertops01">Надежный материал</a></div>
-                  <div id="countertops01" class="panel-collapse collapse" role="tabpanel" aria-labelledby="countertopsHeading01">
+                  <div role="tab" id="facadesHeading05"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades05" aria-controls="facades05" data-parent="#facadesLinks2" aria-expanded="false" data-linked-text="facades05">Материал</a></div>
+                  <div id="facades05" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading05">
                     <ul class="panel-body">
-                      <li>Акриловый камень</li>
-                      <li>Кварцевый агломерат</li>
-                      <li>Облицовка пластиком</li>
+                      <li>Массив</li>
+                      <li>Шпон</li>
+                      <li>МДФ эмаль и пленка</li>
+                      <li>Комбинированный</li>
+                      <li>Со стеклом</li>
                     </ul>
                   </div>
                 </li>
                 <li class="panel panel-default">
-                  <div role="tab" id="countertopsHeading02"><a class="i-content__link" role="button" data-toggle="collapse" href="#countertops02" aria-controls="countertops02" data-parent="#countertopsLinks" aria-expanded="false" data-linked-text="countertops02">Формы любой сложности</a></div>
-                  <div id="countertops02" class="panel-collapse collapse" role="tabpanel" aria-labelledby="countertopsHeading02">
+                  <div role="tab" id="facadesHeading06"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades06" aria-controls="facades06" data-parent="#facadesLinks2" aria-expanded="false" data-linked-text="facades06">Текстуры</a></div>
+                  <div id="facades06" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading06">
                     <ul class="panel-body">
-                      <li>Без стыков</li>
-                      <li>Без швов</li>
+                      <li>Массив</li>
+                      <li>Шпон</li>
+                      <li>МДФ эмаль и пленка</li>
+                      <li>Комбинированный</li>
+                      <li>Со стеклом</li>
                     </ul>
                   </div>
                 </li>
                 <li class="panel panel-default">
-                  <div role="tab" id="countertopsHeading03"><a class="i-content__link" role="button" data-toggle="collapse" href="#countertops03" aria-controls="countertops03" data-parent="#countertopsLinks" aria-expanded="false" data-linked-text="countertops03">Стеновые панели</a></div>
-                  <div id="countertops03" class="panel-collapse collapse" role="tabpanel" aria-labelledby="countertopsHeading03">
+                  <div role="tab" id="facadesHeading07"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades07" aria-controls="facades07" data-parent="#facadesLinks2" aria-expanded="false" data-linked-text="facades07">Цвета</a></div>
+                  <div id="facades07" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading07">
                     <ul class="panel-body">
-                      <li>Любого цвета</li>
-                      <li>Фотопечать</li>
-                      <li>С подсветкой</li>
-                      <li>Под камень</li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="panel panel-default">
-                  <div role="tab" id="countertopsHeading04"><a class="i-content__link" role="button" data-toggle="collapse" href="#countertops04" aria-controls="countertops04" data-parent="#countertopsLinks" aria-expanded="false" data-linked-text="countertops04">Декоративные элементы</a></div>
-                  <div id="countertops04" class="panel-collapse collapse" role="tabpanel" aria-labelledby="countertopsHeading04">
-                    <ul class="panel-body">
-                      <li>Торцевые кромки</li>
-                      <li>Интегрированные бортики</li>
+                      <li>Массив</li>
+                      <li>Шпон</li>
+                      <li>МДФ эмаль и пленка</li>
+                      <li>Комбинированный</li>
+                      <li>Со стеклом</li>
                     </ul>
                   </div>
                 </li>
@@ -343,105 +339,76 @@
       </div>
     </section>
     <section class="screen screen_inner screen_default">
-      <div class="screen__content switcher switcher_fittings">
+      <div class="screen__content">
         <div class="screen__info">
-          <p class="h1 screen__title">Фурнитура</p>
-          <p class="screen__text">Отлично подобранная ручка, как ручка-рейлинг, круглая или квадратная, так и деликатно интегрированная в фасад способна придать кухне индивидуальный облик.</p>
-          <div class="fittings-control switcher__control"><div class="btn-group" role="group">
-            <button type="button" class="btn btn-default btn_unbg active" data-switcher-btn="fittings-cont01">Нижняя</button>
-            <button type="button" class="btn btn-default btn_unbg" data-switcher-btn="fittings-cont02">Верхняя</button>
-          </div></div>
+          <p class="h1 screen__title">Фасады</p>
+          <p class="screen__text">Разнообразие цветов, фактур и фрезеровок открывает широкий простор для дизайнерской фантазии и позволяет создать гардероб на любой вкус от модерна до классики.</p>
         </div>
-        <div class="switcher__holder scene" id="fittingsCell">
-          <div class="screen__illustration switcher__content switcher__content_active" id="fittings-cont01">
-            <div class="screen__illustration-row">
-              <div class="screen__illustration-cell">
-                <div class="i-anim i-fittings">
-                	<div class="i-anim__item i-fittings__item animated"><img src="f/i/fittings-3.png" alt="" class="animated"></div>
-                  <div class="i-anim__item i-fittings__item animated"><img src="f/i/fittings-1.png" alt="" class="animated"></div>
-                  <span class="screen__link animated" style="top: 480px; left: 170px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings01"></a></span>
-                  <span class="screen__link animated" style="top: 205px; left: 255px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings02"></a></span>
-                  <span class="screen__link animated" style="top: 360px; left: 285px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings03"></a></span>
-                </div>
-              </div>
-              <div class="screen__illustration-cell screen__illustration-cell_content">
-                <ul class="panel-group i-content" id="fittingsLinks" role="tablist" aria-multiselectable="false">
-                  <li class="panel panel-default">
-                    <div role="tab" id="fittingsHeading01"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings01" aria-controls="fittings01" data-parent="#fittingsLinks" aria-expanded="false" data-linked-text="fittings01">Надежные механизмы</a></div>
-                    <div id="fittings01" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading01">
-                      <ul class="panel-body">
-                        <li>Петли Blum с доводчиком</li>
-                        <li>Механизмы поджима</li>
-                        <li>Выдвижные ящики Innotech</li>
-                        <li>Выдвижные корзины</li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="panel panel-default">
-                    <div role="tab" id="fittingsHeading02"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings02" aria-controls="fittings02" data-parent="#fittingsLinks" aria-expanded="false" data-linked-text="fittings02">Ручки</a></div>
-                    <div id="fittings02" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading02">
-                      <ul class="panel-body">
-                        <li>Матовые</li>
-                        <li>Хромированные</li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="panel panel-default">
-                    <div role="tab" id="fittingsHeading03"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings03" aria-controls="fittings03" data-parent="#fittingsLinks" aria-expanded="false" data-linked-text="fittings03">Сушки</a></div>
-                    <div id="fittings03" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading03">
-                      <ul class="panel-body">
-                        <li>Выдвижные</li>
-                        <li>Со встроенным светильником</li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+        <div class="screen__illustration scene" id="facadeCell3">
+          <div class="screen__illustration-row">
+            <div class="screen__illustration-cell">
+              <div class="i-facades">
+                <div class="i-facades__1 animated"><img src="f/i/parts/16.png" alt="" class="animated"></div>
+                <div class="i-facades__2 animated"><img src="f/i/parts/17.png" alt="" class="animated"></div>
+                <div class="i-facades__3 animated"><img src="f/i/parts/18.png" alt="" class="animated"></div>
+                <div class="i-facades__4 animated"><img src="f/i/parts/19.png" alt="" class="animated"></div>
+                <span class="screen__link animated" style="top: 180px; left: 40px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades08"></a></span>
+                <span class="screen__link animated" style="top: 325px; left: 140px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades09"></a></span>
+                <span class="screen__link animated" style="top: 260px; left: 260px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades10"></a></span>
+                <span class="screen__link animated" style="top: 450px; left: 400px;"><i></i><i></i><i></i><a href="#" data-linked-plus="facades11"></a></span>
               </div>
             </div>
-          </div>
-          <div class="screen__illustration switcher__content"  id="fittings-cont02">
-            <div class="screen__illustration-row">
-              <div class="screen__illustration-cell">
-                <div class="i-fittings">
-                  <div class="i-fittings__1"><img src="f/i/fittings-2.png" alt=""></div>
-                  <span class="screen__link animated" style="top: 290px; left: 95px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings04"></a></span>
-                  <span class="screen__link animated" style="top: 445px; left: 185px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings05"></a></span>
-                  <span class="screen__link animated" style="top: 120px; left: 340px;"><i></i><i></i><i></i><a href="#" data-linked-plus="fittings06"></a></span>
-                </div>
-              </div>
-              <div class="screen__illustration-cell screen__illustration-cell_content">
-                <ul class="panel-group i-content" id="fittingsLinks2" role="tablist" aria-multiselectable="false">
-                  <li class="panel panel-default">
-                    <div role="tab" id="fittingsHeading04"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings04" aria-controls="fittings04" data-parent="#fittingsLinks2" aria-expanded="false" data-linked-text="fittings04">Надежные механизмы</a></div>
-                    <div id="fittings04" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading04">
-                      <ul class="panel-body">
-                        <li>Петли Blum с доводчиком</li>
-                        <li>Механизмы поджима</li>
-                        <li>Выдвижные ящики Innotech</li>
-                        <li>Выдвижные корзины</li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="panel panel-default">
-                    <div role="tab" id="fittingsHeading05"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings05" aria-controls="fittings05" data-parent="#fittingsLinks2" aria-expanded="false" data-linked-text="fittings05">Светильники</a></div>
-                    <div id="fittings05" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading05">
-                      <ul class="panel-body">
-                        <li>Точечные</li>
-                        <li>Сенсорные</li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="panel panel-default">
-                    <div role="tab" id="fittingsHeading06"><a class="i-content__link" role="button" data-toggle="collapse" href="#fittings06" aria-controls="fittings06" data-parent="#fittingsLinks2" aria-expanded="false" data-linked-text="fittings06">Ручки</a></div>
-                    <div id="fittings06" class="panel-collapse collapse" role="tabpanel" aria-labelledby="fittingsHeading06">
-                      <ul class="panel-body">
-                        <li>Матовые</li>
-                        <li>Хромированные</li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+            <div class="screen__illustration-cell screen__illustration-cell_content">
+              <ul class="panel-group i-content" id="facadesLinks3" role="tablist" aria-multiselectable="false">
+                <li class="panel panel-default">
+                  <div role="tab" id="facadesHeading08"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades08" aria-controls="facades08" data-parent="#facadesLinks3" aria-expanded="false" data-linked-text="facades08">Глухие фасады</a></div>
+                  <div id="facades08" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading08">
+                    <ul class="panel-body">
+                      <li>Массив</li>
+                      <li>Шпон</li>
+                      <li>МДФ эмаль и пленка</li>
+                      <li>Комбинированный</li>
+                      <li>Со стеклом</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="panel panel-default">
+                  <div role="tab" id="facadesHeading09"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades09" aria-controls="facades09" data-parent="#facadesLinks3" aria-expanded="false" data-linked-text="facades09">Декоративные материалы</a></div>
+                  <div id="facades09" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading09">
+                    <ul class="panel-body">
+                      <li>Массив</li>
+                      <li>Шпон</li>
+                      <li>МДФ эмаль и пленка</li>
+                      <li>Комбинированный</li>
+                      <li>Со стеклом</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="panel panel-default">
+                  <div role="tab" id="facadesHeading10"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades10" aria-controls="facades10" data-parent="#facadesLinks3" aria-expanded="false" data-linked-text="facades10">Зеркала</a></div>
+                  <div id="facades10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading10">
+                    <ul class="panel-body">
+                      <li>Массив</li>
+                      <li>Шпон</li>
+                      <li>МДФ эмаль и пленка</li>
+                      <li>Комбинированный</li>
+                      <li>Со стеклом</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="panel panel-default">
+                  <div role="tab" id="facadesHeading11"><a class="i-content__link" role="button" data-toggle="collapse" href="#facades11" aria-controls="facades11" data-parent="#facadesLinks3" aria-expanded="false" data-linked-text="facades11">Стекло</a></div>
+                  <div id="facades11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="facadesHeading11">
+                    <ul class="panel-body">
+                      <li>Массив</li>
+                      <li>Шпон</li>
+                      <li>МДФ эмаль и пленка</li>
+                      <li>Комбинированный</li>
+                      <li>Со стеклом</li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -460,7 +427,7 @@
                 <img src="f/i/monitor-dproject.jpg" alt="" class="i-monitor__dproject">
                 <img src="" alt="" class="i-monitor__img">
                 <div class="i-monitor__content">
-                  <i class="i-monitor__ico"></i>	
+                  <i class="i-monitor__ico"></i>
                   <p class="i-monitor__text">Вызов замерщика</p>
                 </div>
               </div>
