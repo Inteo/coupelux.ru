@@ -52,6 +52,8 @@
             onBefore: function(data){
               $(".screen__info").removeClass("screen__info_active");
               $(".screen__info").eq(parseInt(data.items.visible.attr("rel"))).addClass("screen__info_active");
+              $(".sections-slider__item").removeClass("sections-slider__item_active");
+              data.items.visible.addClass("sections-slider__item_active");
             }
           },
           items: {
@@ -90,7 +92,7 @@
       <div class="screen__back">
         <div class="screen__back-holder emerge" data-effect="slide" data-spin="true" id="topslide" data-up="30px" style="position:relative">
           <div class="sections-slider__holder">
-            <div class="sections-slider__item">
+            <div class="sections-slider__item sections-slider__item_active">
               <img src="f/i/sections/1.png" alt="" width="954" height="511">
               <span class="sections-slider__link sections-slider__link_1" style="top: 320px; left: -380px;"><a href="#"><b>Любые материалы</b></a></span>
               <span class="sections-slider__link sections-slider__link_2" style="top: 570px; left: 30px;"><a href="#"><b>Любые материалы</b></a></span>
