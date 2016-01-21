@@ -4272,3 +4272,97 @@ a.i-content__link:hover {
 .contacts__btns {
   padding-top: 50px;
 }
+.promo {
+  padding-top: 80px;
+}
+.promo__holder {
+  margin-left: -20px;
+  width: 750px;
+  padding-top: 10px;
+}
+.promo__item {
+  padding-left: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 15px;
+  width: 50%;
+}
+.promo__img {
+  overflow: hidden;
+  display: block;
+  margin-bottom: 20px;
+}
+.promo__img img {
+  width: 100%;
+}
+.promo__name {
+  color: #fff;
+  line-height: 30px;
+  padding-left: 50px;
+  display: block;
+}
+.promo__date {
+  color: #e53935;
+  line-height: 30px;
+  padding-left: 50px;
+}
+.promo-card {
+  padding-top: 80px;
+}
+.promo-card .screen__text span {
+  display: inline;
+}
+.promo-card__holder {
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 60px;
+  margin-bottom: 60px;
+}
+.promo-card__img {
+  width: 800px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  margin-bottom: 30px;
+  padding-left: 50px;
+}
+.promo-card__img img {
+  width: 100%;
+}
+.promo-card__label {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  padding-left: 50px;
+  color: #e53935;
+  line-height: 30px;
+  margin-top: -5px;
+  text-align: left;
+}
+.breadcrumbs {
+  list-style: none;
+  margin-left: -20px;
+  margin-bottom: 30px;
+}
+.breadcrumbs li {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  padding-left: 20px;
+}
+.breadcrumbs li a,
+.breadcrumbs li span {
+  color: #90a4ae;
+}
+.breadcrumbs li:before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: .8em;
+  width: 7px;
+  height: 1px;
+  background: #90a4ae;
+}
+.breadcrumbs li:first-child:before {
+  display: none;
+}
