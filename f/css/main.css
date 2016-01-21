@@ -4244,3 +4244,31 @@ a.i-content__link:hover {
 .dark-btns li a:hover span {
   color: #fff;
 }
+.contacts {
+  padding-top: 80px;
+}
+.contacts__map {
+  width: 747px;
+  height: 350px;
+  margin-bottom: 90px;
+}
+.contacts__text {
+  margin-bottom: 40px;
+  width: 750px;
+}
+.contacts__text p {
+  line-height: 30px;
+  color: #e53935;
+  margin-bottom: 0;
+}
+.contacts__text p span {
+  color: #90a4ae;
+}
+.contacts__subtitle {
+  font-size: 25px;
+  color: #fff;
+  margin-bottom: 35px;
+}
+.contacts__btns {
+  padding-top: 50px;
+}

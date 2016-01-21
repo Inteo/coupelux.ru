@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1024">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="f/i//favicon.ico">
+    <title>CoupeLux</title>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="f/js/jquery-1.11.3.min.js"></script>
+    <script src="f/js/bootstrap.min.js"></script>
+    <script src="f/js/jquery.transit.min.js"></script>
+    <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+    <link rel="stylesheet" href="f/js/fotorama.css">
+    <link rel="stylesheet" href="f/css/main.css">
+    <!--[if IE]>
+    <link rel="stylesheet" href="f/css/ie.css">
+    <![endif]-->
+    <script src="f/js/emerge.js"></script>
+    <script src="f/js/ScrollMagic.min.js"></script>
+    <script src="f/js/debug.addIndicators.min.js"></script>
+    <script src="f/js/fotorama.dev.js"></script>
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="f/js/common.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <script>
+      ymaps.ready(function () {
+        var myMap = new ymaps.Map('map', {
+            center: [57.613629, 39.87847],
+            zoom: 12,
+            controls: [],
+          }),
+          Placemark1 = new ymaps.Placemark([57.627629, 39.87847], {
+            hintContent: '',
+            balloonContent: ''
+          },
+          {
+            iconLayout: 'default#image',
+            iconImageHref: 'f/i/marker.png',
+            iconImageSize: [40, 55],
+            iconImageOffset: [-20, -55]
+          });
+          Placemark2 = new ymaps.Placemark([57.59032, 39.900596], {
+            hintContent: '',
+            balloonContent: ''
+          },
+          {
+            iconLayout: 'default#image',
+            iconImageHref: 'f/i/marker.png',
+            iconImageSize: [40, 55],
+            iconImageOffset: [-20, -55]
+          });
+        myMap.geoObjects.add(Placemark1);
+        myMap.geoObjects.add(Placemark2);
+      });
+    </script>
+  </head>
+<body class="inner">
+  <div class="wrap clearfix">
+    <header class="header">
+      <a href="/" class="logo iconize-logo">&nbsp;
+      </a><a href="#ham-popup" class="ham modal-ham">&nbsp;</a>
+      <div class="header__control">
+        <span class="header__phone"><span>+7 (4852)</span> 33-46-06</span>
+        <a href="#metering-popup" class="header__size icon-size modal-inline">&nbsp;</a>
+        <a href="#consult-popup" class="header__consult icon-consult modal-inline">&nbsp;</a>
+      </div>
+    </header>
+    <section class="screen screen_inner screen_dark contacts">
+      <div class="screen__content">
+        <div class="screen__info">
+          <p class="h1 screen__title">Мы всегда рады сотрудничеству</p>
+          <p class="screen__text">Приходите в наши салоны Ярославля и Москвы. Мы всегда готовы оказать помощь в выборе идеального решения для реализации любого вашего проекта. Или просто позвоните по единому телефону.</p>
+          <div class="cooperation">
+	        	<p class="cooperation__phone"><span>+7 (4852)</span> 33-46-06</p>
+            <div id="map" class="contacts__map"></div>
+            <div class="contacts__text">
+              <p><span>Единый телефон:</span> +7 (4852) 33-46-06</p>
+              <p><span>Email:</span> info@coupelux.ru</p>
+            </div>
+            <p class="contacts__subtitle">Адреса салонов</p>
+            <div class="contacts__text">
+              <p><span>Адрес:</span> г. Ярославль, ул. Республиканская, д. 53/14 (2 этаж) </p>
+              <p><span>Режим работы:</span> пн.-пт. с 10-00 до 19-00, сб. с 10-00 до 18-00,вс. с 11-00 до 17-00</p>
+            </div>
+            <div class="contacts__text">
+              <p><span>Адрес:</span> г. Ярославль, пр-т.Фрунзе, д. 38 (3 этаж)</p>
+              <p><span>Режим работы:</span> пн.-вс. с 10-00 до 20-00</p>
+            </div>
+            <p class="contacts__subtitle">Наш салон в Москве</p>
+            <div class="contacts__text">
+              <p><span>Адрес:</span> г. Москва ул. Ленинская слобода, д.26 (3 этаж)</p>
+              <p><span>Телефон:</span> +7 (495) 181-00-46</p>
+            </div>
+	        	<ul class="dark-btns contacts__btns cooperation__btns">
+	        		<li><a href="#"><i class="icon-request"></i><span>Заявка <br>на расчет</span></a>
+	        		</li><li><a href="#"><i class="icon-size"></i><span>Вызвать <br>замерщика</span></a>
+	        		</li><li><a href="#"><i class="icon-designers"></i><span>Дизайнерам</span></a>
+	        		</li>
+	        	</ul>
+	        </div>
+        </div>
+      </div>
+    </section>
+  </div>  
+  <footer class="footer">
+    <div class="holder">
+      <div class="footer__info">
+        <p class="footer__phone">+7 (4852) <span>33-46-06</span></p>
+        <p class="footer__madeby">
+          <span>Создание сайта</span>
+          <a href="#" class="iconize-inteo">&nbsp;</a>
+        </p>
+      </div>
+      <div class="footer__control">
+        <ul class="footer-menu">
+          <li><a href="#">Каталог</a></li>
+          <li><a href="#">Акции</a></li>
+          <li><a href="#">О компании</a></li>
+          <li><a href="#">Вопросы и ответы</a></li>
+          <li><a href="#">Дизайнерам</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+        <form action="/search/">
+          <input class="footer__search" type="text" id="search" name="q" placeholder="Поиск">
+          <label for="search" class="icon-search">&nbsp;</label>
+        </form>
+      </div>
+    </div>
+  </footer>
+  <div class="popups">
+    <div class="popup ham-popup" id="ham-popup">
+      <div class="popup__head">
+        <a href="/" class="logo logo_small iconize-logo2">&nbsp;</a>
+        <ul class="popup__menu">
+          <li><a href="#">Каталог</a>
+          </li><li><a href="#">О компании</a>
+          </li><li><a href="#">Дизайнерам</a>
+          </li><li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="popup__control">
+          <span class="popup__phone"><span>+7 (4852)</span> 33-46-06</span>
+          <a href="#metering-popup" class="popup__size modal-inline"><i class="icon-size"></i>Замерщик</a>
+          <a href="#consult-popup" class="popup__consult modal-inline"><i class="icon-consult"></i>Консультация</a>
+        </div>
+      </div>
+      <div class="section-menu">
+        <div class="holder">
+          <div class="section-menu__holder">
+            <div class="section-menu__col section-menu__col_dbl">
+              <div class="section-menu__list section-menu__list_closets">
+                <p><a href="#" class="section-menu__title">Шкафы-купе</a></p>
+                <div class="section-menu__item">
+                  <p class="section-menu__subtitle">По назначению</p>
+                  <ul>
+                    <li><a href="#">Прямые</a></li>
+                    <li><a href="#">Радиусные</a></li>
+                    <li><a href="#">Мансардные</a></li>
+                    <li><a href="#">В багете</a></li>
+                    <li><a href="#">Угловые</a></li>
+                  </ul>
+                </div><div class="section-menu__item">
+                  <p class="section-menu__subtitle">По исполнению</p>
+                  <ul>
+                    <li><a href="#">Встроенные</a></li>
+                    <li><a href="#">Полувстроенные</a></li>
+                    <li><a href="#">Корпусные</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div><div class="section-menu__col">
+              <div class="section-menu__list section-menu__list_kitchen">
+                <a href="#" class="section-menu__title">Кухни</a>
+                <div class="section-menu__item">
+                  <p class="section-menu__subtitle">По стилю</p>
+                  <ul>
+                    <li><a href="#">Классические</a></li>
+                    <li><a href="#">Модерн</a></li>
+                    <li><a href="#">Хай-тек</a></li>
+                    <li><a href="#">Смешанные</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div><div class="section-menu__col">
+              <div class="section-menu__list section-menu__list_living">
+                <a href="#" class="section-menu__title">Гостиные</a>
+              </div>
+            </div><div class="section-menu__col">
+              <div class="section-menu__list section-menu__list_dressing">
+                <a href="#" class="section-menu__title">Гардеробные</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_hallways">
+                <a href="#" class="section-menu__title">Прихожие</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_bedrooms">
+                <a href="#" class="section-menu__title">Спальни</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_children">
+                <a href="#" class="section-menu__title">Детские</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_cabinet">
+                <a href="#" class="section-menu__title">Кабинеты</a>
+              </div>
+            </div><div class="section-menu__col">
+               <div class="section-menu__list section-menu__list_library">
+                <a href="#" class="section-menu__title">Библиотеки</a>
+              </div>
+            </div><div class="section-menu__col">
+              <div class="section-menu__list section-menu__list_interior">
+                <a href="#" class="section-menu__title">Межкомнатные перегородки</a>
+                <div class="section-menu__item">
+                  <p class="section-menu__subtitle">По исполнению</p>
+                  <ul>
+                    <li><a href="#">Радиусные</a></li>
+                    <li><a href="#">Прямые</a></li>
+                    <li><a href="#">Складные</a></li>
+                    <li><a href="#">Подвесные</a></li>
+                    <li><a href="#">Опорные</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup consult-popup" id="consult-popup">
+      <div class="holder">
+        <div class="popup__half">
+          <div class="i-monitor">
+            <div class="i-monitor__content">
+              <i class="i-monitor__ico"></i>
+              <p class="i-monitor__text">Консультация дизайнера</p>
+            </div>
+          </div>
+        </div><div class="popup__half">
+          <div class="form">
+            <p class="form__title">Консультация</p>
+            <form id="consultform" method="post" action="/send/">
+              <input type="text" class="input valid" placeholder="Ваше имя" name="c-name" id="c-name"><label for="c-name">&nbsp;</label>
+              <p class="input-error">Введите корректное имя !</p>
+              <input type="tel" class="input valid" placeholder="Телефон" name="c-phone" id="c-phone"><label for="c-phone">&nbsp;</label>
+              <p class="input-error">Введите корректный телефон !</p>
+              <input type="email" class="input valid" placeholder="Электронная почта" name="c-email" id="c-email"><label for="c-email">&nbsp;</label>
+              <p class="input-error">Введите корректный email !</p>
+              <textarea class="input" placeholder="Ваш вопрос" name="question"></textarea>
+              <a href="#" class="btn btn-orange form-done">Отправить</a>
+            </form>
+          </div>
+          <div class="form-thx">
+            <p>Спасибо за проявленный интерес к нашей компании. Мы свяжемся с вами в течение 24 часов.</p>
+            <a href="#" class="btn btn-orange form-reset">Спасибо!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup metering-popup" id="metering-popup">
+      <div class="holder">
+        <div class="popup__half">
+          <div class="i-monitor">
+            <div class="i-monitor__content">
+              <i class="i-monitor__ico"></i>
+              <p class="i-monitor__text">Вызов замерщика</p>
+            </div>
+          </div>
+        </div><div class="popup__half">
+          <div class="form">
+            <p class="form__title">Вызов замерщика</p>
+            <form id="sizeform" method="post" action="/send/">
+              <input type="text" class="input valid" placeholder="Ваше имя" name="s-name" id="s-name"><label for="s-name">&nbsp;</label>
+              <p class="input-error">Введите корректное имя !</p>
+              <input type="tel" class="input valid" placeholder="Телефон" name="s-phone" id="s-phone"><label for="s-phone">&nbsp;</label>
+              <p class="input-error">Введите корректный телефон !</p>
+              <input type="email" class="input valid" placeholder="Электронная почта" name="s-email" id="s-email"><label for="s-email">&nbsp;</label>
+              <p class="input-error">Введите корректный email !</p>
+              <textarea class="input" placeholder="Укажите удобное для вас время и желаемую дату" name="comment"></textarea>
+              <a href="#" class="btn btn-orange form-done">Отправить</a>
+            </form>
+          </div>
+          <div class="form-thx">
+            <p>Спасибо за проявленный интерес к нашей компании. Мы свяжемся с вами в течение 24 часов.</p>
+            <a href="#" class="btn btn-orange form-reset">Спасибо!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
