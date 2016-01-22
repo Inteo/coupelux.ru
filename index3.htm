@@ -25,17 +25,18 @@
     <link rel="stylesheet" href="f/css/ie.css">
     <![endif]-->
     <script src="f/js/emerge.js"></script>
+    <script src="f/js/jquery.scrollTo.min.js"></script>
     <script src="f/js/common.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script>
       $(document).ready(function() {
         if ($.browser.mobile===false) {
           var controller = new ScrollMagic.Controller();
-          var startpin = new ScrollMagic.Scene({
+          /*var startpin = new ScrollMagic.Scene({
             duration: 850
           })
           .setPin("section#start")
-          .addTo(controller);
+          .addTo(controller);*/
 
           var scenes = [];
           $(".scene").each(function(){
@@ -108,7 +109,7 @@
         <div class="screen__info">
           <h1 class="screen__title emerge" data-effect="relax" data-await="topslide1" data-up="30px">Дизайнерам</h1>
           <p class="screen__text screen__text_gray emerge" data-hold="300" data-effect="relax" data-await="topslide1" data-up="30px">Мы не просто предоставляем вам работу, мы хотим принять в нашу команду творческих и талантливых людей, для совместного плодотворного и долгосрочного сотрудничества.</p>
-          <a href="#" class="btn btn-transpar"><i class="icon-calc"></i>Расчет проекта</a>
+          <a href="#" class="btn btn-transpar emerge" data-hold="300" data-effect="relax" data-await="topslide1" data-up="30px" data-scrollto="sendproject"><i class="icon-calc"></i>Расчет проекта</a>
           <div class="scroll-cursor emerge" data-hold="300" data-effect="relax" data-await="topslide1" data-up="30px">
             <div class="scroll-cursor__mouse">
               <div class="scroll-cursor__wheel"></div>
@@ -297,7 +298,7 @@
                     <li>Мы оцениваем проект, связываемся с вами и уточняем детали</li>
                   </ul>             
                 </div>
-                <a href="#" class="btn btn-transpar btn-transpar_orange"><i class="icon-calc"></i>Отправить проект</a>
+                <a href="#" class="btn btn-transpar btn-transpar_orange" data-scrollto="sendproject"><i class="icon-calc"></i>Отправить проект</a>
               </div>
               <div class="screen__illustration-cell ">
                 <div class="simple-detail">
@@ -382,11 +383,11 @@
         </div>
       </div>
     </section>
-    <section class="screen screen_inner screen_scheme scheme">
+    <section class="screen screen_inner screen_scheme scheme sendproject">
       <div class="screen__content">
         <div class="screen__info">
           <p class="h1 screen__title">Заявка на расчет проекта</p>
-          <p class="screen__text">Отправьте ваш дизайн-проект на предварительный расчет и мы свяжемся с вами в течении суток. Или просто позвоните нам 
+          <p class="screen__text">Отправьте ваш дизайн-проект на предварительный расчет и&nbsp;мы свяжемся с&nbsp;вами в&nbsp;течении суток.<br>Или просто позвоните нам 
           <span>+7 (4852) 33-46-06.</span></p>
         </div>
         <div class="screen__illustration">

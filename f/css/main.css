@@ -667,7 +667,7 @@ textarea {
 .btn.focus,
 .btn:focus,
 .btn:hover {
-  color: #333;
+  /*color: #333;*/
   text-decoration: none;
 }
 .btn.active,
@@ -1108,7 +1108,8 @@ textarea {
   position: absolute;
   width: 100%;
   height: 3px;
-  background: #161d21;
+  /*background: #161d21;*/
+  background: #e53935;
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -1143,6 +1144,9 @@ textarea {
   left: 0;
   position: absolute;
   margin: auto;
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 [class*=" icon-"],
 [class^=icon-] {
@@ -1397,7 +1401,7 @@ a:hover .icon-consult {
   display: inline-block;
   vertical-align: top;
   width: 50%;
-  padding-top: 80px;
+  padding-top: 120px;
 }
 .popup__half:nth-of-type(2) {
   padding-left: 78px;
@@ -1866,7 +1870,7 @@ a:hover .icon-consult {
 }
 .screen__text {
   color: #eceff1;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 34px;
 }
 .screen__text_gray {
@@ -2806,6 +2810,11 @@ a:hover .icon-consult {
   bottom: 0;
   opacity: 0;
   z-index: -2;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+.gallery.current {
+  z-index: -1;
 }
 .gallery-control {
   position: absolute;
@@ -2814,23 +2823,13 @@ a:hover .icon-consult {
   opacity: 0;
   z-index: -1;
 }
-.scrolling .gallery,
+.scrolling .gallery.current,
 .scrolling .gallery-control,
 .scrolling .fixed {
   opacity: 1;
-  -webkit-transition: opacity 1s linear;
-  -moz-transition: opacity 1s linear;
-  -o-transition: opacity 1s linear;
-  -ms-transition: opacity 1s linear;
-  transition: opacity 1s linear;
 }
 .scrolling .gallery-control {
   opacity: .5;
-  -webkit-transition: opacity .1s linear;
-  -moz-transition: opacity .1s linear;
-  -o-transition: opacity .1s linear;
-  -ms-transition: opacity .1s linear;
-  transition: opacity 0.1s linear;
 }
 .scrolling .gallery-control:hover {
   opacity: 1;

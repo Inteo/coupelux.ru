@@ -169,11 +169,17 @@ $(function(){
     });    
     return false;
   });
+  $("[data-scrollto]").click(function(){
+    var scrollto = $(this).data('scrollto');
+    $.scrollTo('.'+scrollto, 800);
+    return false;
+  });
+
   $(".switcher__control button").click(function(){
     var i = $(this).data("switcher-btn");
     $(this).closest(".switcher__control").find("button").removeClass("active");
     $(this).addClass("active");
     $(this).closest(".switcher").find(".switcher__content").removeClass("switcher__content_active");
     $(this).closest(".switcher").find(".switcher__content" + "#" + i).addClass("switcher__content_active");
-  })
+  });
 });

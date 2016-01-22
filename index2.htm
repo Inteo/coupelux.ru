@@ -30,21 +30,6 @@
     <script src="f/js/common.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script>
-      function correctDots(container,i) {
-        if (i > -1) {
-          var items = container.find('fotorama__stage__frame'), dots = items.eq(i).find(".sections-slider__link");
-          dots.each(function(index, element){
-            console.log( element );
-            var source = $(this).closest('.fotorama__stage__frame').find('.fotorama__img');
-            console.log( source.height());
-          });
-        }
-        else {
-          container.find(".sections-slider__link").each(function(index, element){
-            var source = $(this).closest('.fotorama__stage__frame').find('.fotorama__img');
-          });
-        }
-      }
       $(document).ready(function(){
         if ($.browser.mobile===false) {
           var controller = new ScrollMagic.Controller();
@@ -67,13 +52,13 @@
             if(controller.scrollPos() > 0) {
               $('body').addClass('scrolling');
               $('.gallery-cover').removeClass('moveToFront').addClass('moveToBack');
-              $('.gallery').removeClass('fadeOut');
+              $('.gallery.current').removeClass('fadeOut');
               $('.gallery-control').removeClass('fadeOut');
             }
             else {
               $('body').removeClass('scrolling');
               $('.gallery-cover').removeClass('moveToBack').addClass('moveToFront');
-              $('.gallery').addClass('fadeOut');
+              $('.gallery.current').addClass('fadeOut');
               $('.gallery-control').addClass('fadeOut');
             }
           });
@@ -91,8 +76,12 @@
       });
       $('.i-content').on('show.bs.collapse', function (e) {
         var c = $(this).find("[href='#" + $(e.target).attr('id') + "']").data('linked-text'), contain = $(this).closest('.screen__illustration');
-        contain.find('.screen__link').removeClass('active');
+        //contain.find('.screen__link').removeClass('active');
         contain.find('[data-linked-plus="'+c+'"]').closest('.screen__link').addClass('active');
+      });
+      $('.i-content').on('hide.bs.collapse', function (e) {
+        var c = $(this).find("[href='#" + $(e.target).attr('id') + "']").data('linked-text'), contain = $(this).closest('.screen__illustration');
+        contain.find('[data-linked-plus="'+c+'"]').closest('.screen__link').removeClass('active');
       });
       if($(".scheme .switcher__control button.active").data("switcher-btn") == "scheme-cont01") {
         $(".request-form").addClass("hide");
@@ -121,6 +110,15 @@
           $(".scheme .i-monitor__ico").addClass('i-monitor__ico_request');
           $(".scheme .i-monitor__text").text("Заявка на проект");
         }
+      });
+      $('[data-gallery-change]').click(function(e){
+        if ($(this).hasClass('active')) return false;
+        var gal = $(this).data('gallery-change');
+        $('[data-gallery-change]').removeClass('active');
+        $(this).addClass('active');
+        $('[data-gallery-type]').removeClass('current');
+        $('[data-gallery-type='+gal+']').addClass('current');
+        return false;
       });
       $(".scheme__btn").click(function(){
         $(".scheme-slide").addClass("scheme-slide_form");
@@ -183,7 +181,7 @@
         </div>
 
       </div>
-      <div class="gallery fotorama" data-fit="cover" data-width="100%" data-height="100%" data-transition="crossfade" data-autoplay="false">
+ <div class="gallery fotorama" data-gallery-type="classic" data-fit="cover" data-width="100%" data-height="100%" data-transition="crossfade" data-autoplay="false">
         <div data-img="f/i/kitchen.jpg">
           <span class="sections-slider__link sections-slider__link_1" style="top: 40%; left: 72%;" data-top="0.40"><a href="#"><b><span>Фасад — </span>ДСП «Эггер»</b></a></span>
           <span class="sections-slider__link sections-slider__link_2" style="top: 47.7%; left: 56.5%;" data-top="0.477"><a href="#"><b><span>Фасад — </span>ДСП «Эггер»</b></a></span>
@@ -195,10 +193,38 @@
 
         </div>
       </div>
+ <div class="gallery fotorama" data-gallery-type="modern" data-fit="cover" data-width="100%" data-height="100%" data-transition="crossfade" data-autoplay="false">
+        <div data-img="f/i/kitchen.jpg">
+          
+
+        </div>
+      </div>
+      <div class="gallery fotorama current" data-gallery-type="all" data-fit="cover" data-width="100%" data-height="100%" data-transition="crossfade" data-autoplay="false">
+        <div data-img="f/i/kitchen.jpg">
+          <span class="sections-slider__link sections-slider__link_1" style="top: 40%; left: 72%;" data-top="0.40"><a href="#"><b><span>Фасад — </span>ДСП «Эггер»</b></a></span>
+          <span class="sections-slider__link sections-slider__link_2" style="top: 47.7%; left: 56.5%;" data-top="0.477"><a href="#"><b><span>Фасад — </span>ДСП «Эггер»</b></a></span>
+          <span class="sections-slider__link sections-slider__link_3" style="top: 65.7%; left: 16%;" data-top="0.657"><a href="#"><b><span>Фасад — </span>ДСП «Эггер»</b></a></span>
+          <span class="sections-slider__link sections-slider__link_4" style="top: 65%; left: 80.5%;" data-top="0.65"><a href="#"><b><span>Фасад — </span>ДСП «Эггер»</b></a></span>
+        </div>
+        <div data-img="f/i/kitchen.jpg">
+          
+
+        </div>
+        <div data-img="f/i/kitchen.jpg">
+          
+
+        </div>
+        <div data-img="f/i/kitchen.jpg">
+          
+
+        </div>
+
+      </div>
+
   <div class="gallery-control"><div class="btn-group" role="group">
-  <button type="button" class="btn btn-default active">Все кухни</button>
-  <button type="button" class="btn btn-default">Классика</button>
-  <button type="button" class="btn btn-default">Модерн</button>
+  <button type="button" class="btn btn-default active" data-gallery-change="all">Все кухни</button>
+  <button type="button" class="btn btn-default" data-gallery-change="classic">Классика</button>
+  <button type="button" class="btn btn-default" data-gallery-change="modern">Модерн</button>
 </div></div>
 
     </section>
